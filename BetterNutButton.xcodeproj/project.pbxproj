@@ -14,6 +14,11 @@
 		F444E13B2C5A844F009C5E1B /* BetterNutButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E13A2C5A844F009C5E1B /* BetterNutButtonTests.swift */; };
 		F444E1452C5A844F009C5E1B /* BetterNutButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */; };
 		F444E1472C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */; };
+		F444E1552C5A847C009C5E1B /* Nut.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1542C5A847C009C5E1B /* Nut.swift */; };
+		F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1562C5A8823009C5E1B /* NutManager.swift */; };
+		F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1592C5A92EC009C5E1B /* MainButtonView.swift */; };
+		F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */; };
+		F444E15F2C5AB2EA009C5E1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		F444E1402C5A844F009C5E1B /* BetterNutButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterNutButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonUITests.swift; sourceTree = "<group>"; };
 		F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F444E1542C5A847C009C5E1B /* Nut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nut.swift; sourceTree = "<group>"; };
+		F444E1562C5A8823009C5E1B /* NutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutManager.swift; sourceTree = "<group>"; };
+		F444E1592C5A92EC009C5E1B /* MainButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonView.swift; sourceTree = "<group>"; };
+		F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutCountButtonView.swift; sourceTree = "<group>"; };
+		F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +104,8 @@
 		F444E1282C5A844E009C5E1B /* BetterNutButton */ = {
 			isa = PBXGroup;
 			children = (
+				F444E1582C5A92D8009C5E1B /* Views */,
+				F444E1532C5A846A009C5E1B /* Models */,
 				F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */,
 				F444E12B2C5A844E009C5E1B /* ContentView.swift */,
 				F444E12D2C5A844F009C5E1B /* Assets.xcassets */,
@@ -125,6 +137,25 @@
 				F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */,
 			);
 			path = BetterNutButtonUITests;
+			sourceTree = "<group>";
+		};
+		F444E1532C5A846A009C5E1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1542C5A847C009C5E1B /* Nut.swift */,
+				F444E1562C5A8823009C5E1B /* NutManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F444E1582C5A92D8009C5E1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1592C5A92EC009C5E1B /* MainButtonView.swift */,
+				F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */,
+				F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +288,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F444E15F2C5AB2EA009C5E1B /* SettingsView.swift in Sources */,
+				F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */,
 				F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */,
+				F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */,
+				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
 				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,
+				F444E1552C5A847C009C5E1B /* Nut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,17 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+	@State private var newNut = Nut.newNut
+	@Binding var nuts: [Nut]
+	@Environment(\.scenePhase) private var scenePhase
+	let saveAction: ()-> Void
+	
+	var body: some View {
+		NavigationStack
+		{
+			Spacer()
+			MainButtonView(nuts: $nuts)
+			
+			/*
+			 NavigationStack {
+			 List($nuts) { $nut in
+			 Text(dateFormatter.string(from: nut.time))
+			 }
+			 }
+			 */
+			NutCountButtonView(nuts: $nuts)
+			Spacer()
+		}
+		.onChange(of: scenePhase) {
+			if (scenePhase == .inactive) { saveAction() }
+		}
+	}
+		
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+	// need to provide a constant for the data
+	static var previews: some View {
+		ContentView(nuts: .constant(Nut.sampleData), saveAction: {})
+	}
 }
