@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Foundation
 
 struct SettingsView: View {
 	@Binding var nuts: [Nut]
@@ -33,6 +34,16 @@ struct SettingsView: View {
 			Text("Time since last nut")
 			Text(intervalFormatter.string(from: delta) ?? "0")
 			
+			Spacer()
+			
+			Button {
+				print(queryDatabase(searchTerm: "August"))
+			} label: {
+				Rectangle()
+					.fill(Color("BackgroundColor"))
+					.frame(width: 100, height: 100)
+			}
+
 			NavigationStack {
 				List {
 					ForEach($nuts, editActions: .delete) { $nut in
@@ -64,6 +75,11 @@ struct SettingsView: View {
 			return Date.now.timeIntervalSince(nuts[nuts.count-1].time)
 		}
 		return TimeInterval.zero
+	}
+	
+	func queryDatabase(searchTerm: String) -> [Nut]
+	{
+		return nuts.filter { dateFormatter.string(from: $0.time).contains(searchTerm) }
 	}
 }
 
