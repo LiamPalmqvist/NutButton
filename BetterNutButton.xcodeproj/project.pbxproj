@@ -19,6 +19,14 @@
 		F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1592C5A92EC009C5E1B /* MainButtonView.swift */; };
 		F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */; };
 		F444E15F2C5AB2EA009C5E1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */; };
+		F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484A9A32C5C35A6003C2370 /* ListItem.swift */; };
+		F484A9A82C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */; };
+		F484A9A92C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */; };
+		F484A9AA2C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */; };
+		F484A9AB2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */; };
+		F484A9AC2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */; };
+		F484A9AD2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */; };
+		F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +62,11 @@
 		F444E1592C5A92EC009C5E1B /* MainButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonView.swift; sourceTree = "<group>"; };
 		F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutCountButtonView.swift; sourceTree = "<group>"; };
 		F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F484A9A32C5C35A6003C2370 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Medium.ttf"; sourceTree = "<group>"; };
+		F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Regular.ttf"; sourceTree = "<group>"; };
+		F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Regular-copy.ttf"; sourceTree = "<group>"; };
+		F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Medium-copy.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +121,7 @@
 				F444E1532C5A846A009C5E1B /* Models */,
 				F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */,
 				F444E12B2C5A844E009C5E1B /* ContentView.swift */,
+				F484A9B92C5C3A27003C2370 /* Font */,
 				F444E12D2C5A844F009C5E1B /* Assets.xcassets */,
 				F444E12F2C5A844F009C5E1B /* Preview Content */,
 			);
@@ -135,6 +149,7 @@
 			children = (
 				F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */,
 				F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */,
+				F484A9A72C5C3936003C2370 /* Font */,
 			);
 			path = BetterNutButtonUITests;
 			sourceTree = "<group>";
@@ -154,8 +169,28 @@
 				F444E1592C5A92EC009C5E1B /* MainButtonView.swift */,
 				F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */,
 				F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */,
+				F484A9A32C5C35A6003C2370 /* ListItem.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F484A9A72C5C3936003C2370 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */,
+				F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */,
+			);
+			name = Font;
+			path = ../../NutButton/Font;
+			sourceTree = "<group>";
+		};
+		F484A9B92C5C3A27003C2370 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */,
+				F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,8 +297,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F484A9AB2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */,
 				F444E1312C5A844F009C5E1B /* Preview Assets.xcassets in Resources */,
+				F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */,
 				F444E12E2C5A844F009C5E1B /* Assets.xcassets in Resources */,
+				F484A9A82C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F484A9AC2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */,
+				F484A9A92C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +318,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F484A9AD2C5C3936003C2370 /* LEMONMILK-Regular.ttf in Resources */,
+				F484A9AA2C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +334,7 @@
 				F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */,
 				F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */,
 				F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */,
+				F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */,
 				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
 				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,
 				F444E1552C5A847C009C5E1B /* Nut.swift in Sources */,
@@ -461,7 +504,7 @@
 				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BetterNutButton/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -490,7 +533,7 @@
 				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = BetterNutButton/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

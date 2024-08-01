@@ -13,8 +13,9 @@ struct SettingsView: View {
 	
 	private let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
-		formatter.dateStyle = .long
-		formatter.timeStyle = .medium
+		//formatter.dateStyle = .long
+		//formatter.timeStyle = .short
+		formatter.dateFormat = "d MMMM YYYY - HH:mm:ss at "
 		return formatter
 	}()
 	
@@ -28,40 +29,41 @@ struct SettingsView: View {
 	@Environment(\.isEnabled) private var loaded
 	
 	var body: some View {
-		
-		VStack {
-			
-			Text("Time since last nut")
-			Text(intervalFormatter.string(from: delta) ?? "0")
-			
-			Spacer()
-			
-			Button {
-				print(queryDatabase(searchTerm: "August"))
-			} label: {
-				Rectangle()
-					.fill(Color("BackgroundColor"))
-					.frame(width: 100, height: 100)
-			}
+		ZStack {
+			Color("BackgroundColor")
+				.ignoresSafeArea()
+			VStack {
+				
+				Text("Time since last nut")
+				Text(intervalFormatter.string(from: delta) ?? "0")
+				
+				
+				Button {
+					print(queryDatabase(searchTerm: "August"))
+				} label: {
+					Rectangle()
+						.fill(Color("BackgroundColor"))
+						.frame(width: 100, height: 100)
+				}
 
-			NavigationStack {
+				
 				List {
 					ForEach($nuts, editActions: .delete) { $nut in
-						Text(dateFormatter.string(from: nut.time))
+						ListItem(parsedText: .constant(dateFormatter.string(from: nut.time)))
 					}.onDelete(perform: delete)
 				}
-			}
-			
-		}.onAppear(perform: {
-			Task {
-				try await delta = calculateDelta()
-			}
-		})
-		.onChange(of: delta, {
-			Task {
-				try await delta = calculateDelta()
-			}
-		})
+				
+			}.onAppear(perform: {
+				Task {
+					try await delta = calculateDelta()
+				}
+			})
+			.onChange(of: delta, {
+				Task {
+					try await delta = calculateDelta()
+				}
+			})
+		}
 	}
 	
 	func delete(at offsets: IndexSet)

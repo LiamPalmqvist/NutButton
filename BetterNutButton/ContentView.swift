@@ -13,16 +13,26 @@ struct ContentView: View {
 	let saveAction: ()-> Void
 	
 	var body: some View {
-		NavigationStack
-		{
-			Spacer()
-			MainButtonView(nuts: $nuts)
-			NutCountButtonView(nuts: $nuts)
-			Spacer()
+		ZStack {
+			Color("BackgroundColor")
+				.ignoresSafeArea()
+			
+			VStack {
+				Spacer()
+				MainButtonView(nuts: $nuts)
+				Text("NUTS")
+					.font(Font
+						.custom("LEMONMILK-Regular", size: 56))
+					.foregroundColor(Color("TextColor"))
+				NutCountButtonView(nuts: $nuts)
+				Spacer()
+				Spacer()
+			}
+			.onChange(of: scenePhase) {
+				if (scenePhase == .inactive) { saveAction() }
+			}
 		}
-		.onChange(of: scenePhase) {
-			if (scenePhase == .inactive) { saveAction() }
-		}
+		
 	}
 		
 }
