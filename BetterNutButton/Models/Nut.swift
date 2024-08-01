@@ -14,14 +14,10 @@ struct Nut: Identifiable, Codable
 	var time: Date
 	
 	// define the initialiser properties parsed
-	init(id: UUID = UUID(), time: Date = Date()) 
+	init(id: UUID = UUID(), time: Date = Date())
 	{
 		self.id = id
 		self.time = time
-	}
-	
-	static var newNut: Nut {
-		Nut(time: Date.now)
 	}
 }
 
@@ -30,7 +26,7 @@ extension Nut {
 	static let sampleData: [Nut] =
 	[
 		Nut(time: Date.now),
-		Nut(time: Date.now - 50),
+		Nut(time: Date.now - 500),
 		Nut(time: Date.now - 1000)
 	]
 }

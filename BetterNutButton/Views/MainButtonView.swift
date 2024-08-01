@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct MainButtonView: View {
-	@State private var newNut = Nut.newNut
 	@Binding var nuts: [Nut]
 	@State private var scale = 290.0
 	@State private var isAnimating = false;
 	
 	var body: some View {
 		Button {
-			nuts.append(newNut)
+			nuts.append(Nut(time:Date.now))
 		} label: {
 			ZStack {
 				Circle()

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-	@State private var newNut = Nut.newNut
 	@Binding var nuts: [Nut]
 	@Environment(\.scenePhase) private var scenePhase
 	let saveAction: ()-> Void
@@ -18,14 +17,6 @@ struct ContentView: View {
 		{
 			Spacer()
 			MainButtonView(nuts: $nuts)
-			
-			/*
-			 NavigationStack {
-			 List($nuts) { $nut in
-			 Text(dateFormatter.string(from: nut.time))
-			 }
-			 }
-			 */
 			NutCountButtonView(nuts: $nuts)
 			Spacer()
 		}
