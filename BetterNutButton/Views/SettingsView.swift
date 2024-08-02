@@ -53,8 +53,23 @@ struct SettingsView: View {
 						}
 					}
 
+					Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
+						.font(Font.custom("LEMONMILK-Regular", size: 35))
+						.frame(width: 350, alignment: .leading)
+						.padding(.bottom, -10)
 					
 					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
+		
+						if (index < nuts.count-1) {
+							if (calculateMonth(date: nuts[index].time) != calculateMonth(date: nuts[index+1].time))
+							{
+								Text(calculateMonth(date: nuts[index].time) + " " + dateFormatter.string(from: nuts[index].time).components(separatedBy: " ")[2])
+									.font(Font.custom("LEMONMILK-Regular", size: 35))
+									.frame(width: 350, alignment: .leading)
+									.padding(.bottom, -10)
+							}
+						}
+						
 						ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts)
 					}
 					
@@ -88,6 +103,11 @@ struct SettingsView: View {
 	func queryDatabase(searchTerm: String) -> [Nut]
 	{
 		return nuts.filter { dateFormatter.string(from: $0.time).contains(searchTerm) }
+	}
+	
+	func calculateMonth(date: Date) -> String
+	{
+		return dateFormatter.string(from: date).components(separatedBy: " ")[1]
 	}
 }
 

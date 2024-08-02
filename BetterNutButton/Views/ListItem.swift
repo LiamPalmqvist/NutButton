@@ -20,8 +20,6 @@ struct ListItem: View {
 		return formatter
 	}()
 	
-	var todayDate: String = ""
-	
 	var body: some View {
 		ZStack {
 			Rectangle()
@@ -60,7 +58,7 @@ struct ListItem: View {
 						}
 					}
 					HStack {
-						Text(formatDate(format: "HH:mm:ss at", date: parsedDate))
+						Text(formatDate(format: "HH:mm:ss", date: parsedDate))
 							.font(Font.custom("LEMONMILK-Regular", size:20))
 						Spacer()
 					}
