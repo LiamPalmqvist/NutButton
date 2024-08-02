@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F411E4982C5D6836000F071B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F444E1262C5A844E009C5E1B /* BetterNutButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterNutButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonApp.swift; sourceTree = "<group>"; };
 		F444E12B2C5A844E009C5E1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,6 +98,7 @@
 		F444E11D2C5A844E009C5E1B = {
 			isa = PBXGroup;
 			children = (
+				F411E4982C5D6836000F071B /* README.md */,
 				F444E1282C5A844E009C5E1B /* BetterNutButton */,
 				F444E1392C5A844F009C5E1B /* BetterNutButtonTests */,
 				F444E1432C5A844F009C5E1B /* BetterNutButtonUITests */,
