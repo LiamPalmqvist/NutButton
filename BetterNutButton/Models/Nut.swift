@@ -25,8 +25,10 @@ struct Nut: Identifiable, Codable
 extension Nut {
 	static let sampleData: [Nut] =
 	[
-		Nut(time: Date.now),
+		Nut(time: Date.now - 100000),
+		Nut(time: Date.now - 10000),
+		Nut(time: Date.now - 1000),
 		Nut(time: Date.now - 500),
-		Nut(time: Date.now - 1000)
+		Nut(time: Date.now)
 	]
 }

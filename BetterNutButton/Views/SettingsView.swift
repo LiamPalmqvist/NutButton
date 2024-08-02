@@ -21,6 +21,8 @@ struct SettingsView: View {
 	
 	private let intervalFormatter: DateComponentsFormatter = {
 		let formatter = DateComponentsFormatter()
+		formatter.allowedUnits = [.day, .hour, .minute, .second]
+		formatter.zeroFormattingBehavior = .pad
 		formatter.unitsStyle = .short
 		return formatter
 	}()
@@ -32,37 +34,41 @@ struct SettingsView: View {
 		ZStack {
 			Color("BackgroundColor")
 				.ignoresSafeArea()
-			VStack {
-				
-				Text("Time since last nut")
-				Text(intervalFormatter.string(from: delta) ?? "0")
-				
-				
-				Button {
-					print(queryDatabase(searchTerm: "August"))
-				} label: {
-					Rectangle()
-						.fill(Color("BackgroundColor"))
-						.frame(width: 100, height: 100)
-				}
+			ScrollView {
+				Spacer()
+				VStack {
+					
+					Text("Time since last nut")
+						.frame(width: 375)
+						.font(Font.custom("LEMONMILK-Regular", size: 30))
+						.padding(.bottom, -25.0)
+					ZStack {
+						Rectangle().foregroundColor(Color("ContainerColor"))
+							.frame(width: 375, height: 50)
+							.cornerRadius(15)
+							.padding(.vertical)
+						VStack {
+							Text(intervalFormatter.string(from: delta) ?? "0")
+								.font(Font.custom("LEMONMILK-Regular", size: 22))
+						}
+					}
 
-				
-				List {
-					ForEach($nuts, editActions: .delete) { $nut in
-						ListItem(parsedText: .constant(dateFormatter.string(from: nut.time)))
-					}.onDelete(perform: delete)
-				}
-				
-			}.onAppear(perform: {
-				Task {
-					try await delta = calculateDelta()
-				}
-			})
-			.onChange(of: delta, {
-				Task {
-					try await delta = calculateDelta()
-				}
-			})
+					
+					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
+						ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts)
+					}
+					
+				}.onAppear(perform: {
+					Task {
+						try await delta = calculateDelta()
+					}
+				})
+				.onChange(of: delta, {
+					Task {
+						try await delta = calculateDelta()
+					}
+				})
+			}
 		}
 	}
 	
