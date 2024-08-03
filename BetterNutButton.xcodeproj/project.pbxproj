@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */; };
+		F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E12B2C5A844E009C5E1B /* ContentView.swift */; };
+		F444E12E2C5A844F009C5E1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F444E12D2C5A844F009C5E1B /* Assets.xcassets */; };
+		F444E1312C5A844F009C5E1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F444E1302C5A844F009C5E1B /* Preview Assets.xcassets */; };
+		F444E13B2C5A844F009C5E1B /* BetterNutButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E13A2C5A844F009C5E1B /* BetterNutButtonTests.swift */; };
+		F444E1452C5A844F009C5E1B /* BetterNutButtonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */; };
+		F444E1472C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */; };
+		F444E1552C5A847C009C5E1B /* Nut.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1542C5A847C009C5E1B /* Nut.swift */; };
+		F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1562C5A8823009C5E1B /* NutManager.swift */; };
+		F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1592C5A92EC009C5E1B /* MainButtonView.swift */; };
+		F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */; };
+		F444E15F2C5AB2EA009C5E1B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */; };
+		F454473C2C5E4DEE001CBDE6 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */; };
+		F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454473D2C5E509B001CBDE6 /* SettingsView.swift */; };
+		F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484A9A32C5C35A6003C2370 /* ListItem.swift */; };
+		F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F444E1372C5A844F009C5E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F444E11E2C5A844E009C5E1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F444E1252C5A844E009C5E1B;
+			remoteInfo = BetterNutButton;
+		};
+		F444E1412C5A844F009C5E1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F444E11E2C5A844E009C5E1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F444E1252C5A844E009C5E1B;
+			remoteInfo = BetterNutButton;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F411E4982C5D6836000F071B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F444E1262C5A844E009C5E1B /* BetterNutButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BetterNutButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonApp.swift; sourceTree = "<group>"; };
+		F444E12B2C5A844E009C5E1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F444E12D2C5A844F009C5E1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F444E1302C5A844F009C5E1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F444E1362C5A844F009C5E1B /* BetterNutButtonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterNutButtonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F444E13A2C5A844F009C5E1B /* BetterNutButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonTests.swift; sourceTree = "<group>"; };
+		F444E1402C5A844F009C5E1B /* BetterNutButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BetterNutButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonUITests.swift; sourceTree = "<group>"; };
+		F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetterNutButtonUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F444E1542C5A847C009C5E1B /* Nut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nut.swift; sourceTree = "<group>"; };
+		F444E1562C5A8823009C5E1B /* NutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutManager.swift; sourceTree = "<group>"; };
+		F444E1592C5A92EC009C5E1B /* MainButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonView.swift; sourceTree = "<group>"; };
+		F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutCountButtonView.swift; sourceTree = "<group>"; };
+		F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		F454473D2C5E509B001CBDE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F484A9A32C5C35A6003C2370 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Regular-copy.ttf"; sourceTree = "<group>"; };
+		F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Medium-copy.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F444E1232C5A844E009C5E1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E1332C5A844F009C5E1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E13D2C5A844F009C5E1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F444E11D2C5A844E009C5E1B = {
+			isa = PBXGroup;
+			children = (
+				F411E4982C5D6836000F071B /* README.md */,
+				F444E1282C5A844E009C5E1B /* BetterNutButton */,
+				F444E1392C5A844F009C5E1B /* BetterNutButtonTests */,
+				F444E1432C5A844F009C5E1B /* BetterNutButtonUITests */,
+				F444E1272C5A844E009C5E1B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F444E1272C5A844E009C5E1B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1262C5A844E009C5E1B /* BetterNutButton.app */,
+				F444E1362C5A844F009C5E1B /* BetterNutButtonTests.xctest */,
+				F444E1402C5A844F009C5E1B /* BetterNutButtonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F444E1282C5A844E009C5E1B /* BetterNutButton */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1582C5A92D8009C5E1B /* Views */,
+				F444E1532C5A846A009C5E1B /* Models */,
+				F444E1292C5A844E009C5E1B /* BetterNutButtonApp.swift */,
+				F444E12B2C5A844E009C5E1B /* ContentView.swift */,
+				F484A9B92C5C3A27003C2370 /* Font */,
+				F444E12D2C5A844F009C5E1B /* Assets.xcassets */,
+				F444E12F2C5A844F009C5E1B /* Preview Content */,
+			);
+			path = BetterNutButton;
+			sourceTree = "<group>";
+		};
+		F444E12F2C5A844F009C5E1B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1302C5A844F009C5E1B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F444E1392C5A844F009C5E1B /* BetterNutButtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				F444E13A2C5A844F009C5E1B /* BetterNutButtonTests.swift */,
+			);
+			path = BetterNutButtonTests;
+			sourceTree = "<group>";
+		};
+		F444E1432C5A844F009C5E1B /* BetterNutButtonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1442C5A844F009C5E1B /* BetterNutButtonUITests.swift */,
+				F444E1462C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift */,
+			);
+			path = BetterNutButtonUITests;
+			sourceTree = "<group>";
+		};
+		F444E1532C5A846A009C5E1B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1542C5A847C009C5E1B /* Nut.swift */,
+				F444E1562C5A8823009C5E1B /* NutManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F444E1582C5A92D8009C5E1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F444E1592C5A92EC009C5E1B /* MainButtonView.swift */,
+				F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */,
+				F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */,
+				F484A9A32C5C35A6003C2370 /* ListItem.swift */,
+				F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */,
+				F454473D2C5E509B001CBDE6 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F484A9B92C5C3A27003C2370 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */,
+				F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F444E1252C5A844E009C5E1B /* BetterNutButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F444E14A2C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButton" */;
+			buildPhases = (
+				F444E1222C5A844E009C5E1B /* Sources */,
+				F444E1232C5A844E009C5E1B /* Frameworks */,
+				F444E1242C5A844E009C5E1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BetterNutButton;
+			productName = BetterNutButton;
+			productReference = F444E1262C5A844E009C5E1B /* BetterNutButton.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F444E1352C5A844F009C5E1B /* BetterNutButtonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F444E14D2C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButtonTests" */;
+			buildPhases = (
+				F444E1322C5A844F009C5E1B /* Sources */,
+				F444E1332C5A844F009C5E1B /* Frameworks */,
+				F444E1342C5A844F009C5E1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F444E1382C5A844F009C5E1B /* PBXTargetDependency */,
+			);
+			name = BetterNutButtonTests;
+			productName = BetterNutButtonTests;
+			productReference = F444E1362C5A844F009C5E1B /* BetterNutButtonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F444E13F2C5A844F009C5E1B /* BetterNutButtonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F444E1502C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButtonUITests" */;
+			buildPhases = (
+				F444E13C2C5A844F009C5E1B /* Sources */,
+				F444E13D2C5A844F009C5E1B /* Frameworks */,
+				F444E13E2C5A844F009C5E1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F444E1422C5A844F009C5E1B /* PBXTargetDependency */,
+			);
+			name = BetterNutButtonUITests;
+			productName = BetterNutButtonUITests;
+			productReference = F444E1402C5A844F009C5E1B /* BetterNutButtonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F444E11E2C5A844E009C5E1B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					F444E1252C5A844E009C5E1B = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					F444E1352C5A844F009C5E1B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = F444E1252C5A844E009C5E1B;
+					};
+					F444E13F2C5A844F009C5E1B = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = F444E1252C5A844E009C5E1B;
+					};
+				};
+			};
+			buildConfigurationList = F444E1212C5A844E009C5E1B /* Build configuration list for PBXProject "BetterNutButton" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F444E11D2C5A844E009C5E1B;
+			productRefGroup = F444E1272C5A844E009C5E1B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F444E1252C5A844E009C5E1B /* BetterNutButton */,
+				F444E1352C5A844F009C5E1B /* BetterNutButtonTests */,
+				F444E13F2C5A844F009C5E1B /* BetterNutButtonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F444E1242C5A844E009C5E1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F444E1312C5A844F009C5E1B /* Preview Assets.xcassets in Resources */,
+				F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */,
+				F444E12E2C5A844F009C5E1B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E1342C5A844F009C5E1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E13E2C5A844F009C5E1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F444E1222C5A844E009C5E1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F444E15F2C5AB2EA009C5E1B /* HistoryView.swift in Sources */,
+				F454473C2C5E4DEE001CBDE6 /* SettingsButton.swift in Sources */,
+				F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */,
+				F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */,
+				F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */,
+				F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */,
+				F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */,
+				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
+				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,
+				F444E1552C5A847C009C5E1B /* Nut.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E1322C5A844F009C5E1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F444E13B2C5A844F009C5E1B /* BetterNutButtonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F444E13C2C5A844F009C5E1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F444E1472C5A844F009C5E1B /* BetterNutButtonUITestsLaunchTests.swift in Sources */,
+				F444E1452C5A844F009C5E1B /* BetterNutButtonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F444E1382C5A844F009C5E1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F444E1252C5A844E009C5E1B /* BetterNutButton */;
+			targetProxy = F444E1372C5A844F009C5E1B /* PBXContainerItemProxy */;
+		};
+		F444E1422C5A844F009C5E1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F444E1252C5A844E009C5E1B /* BetterNutButton */;
+			targetProxy = F444E1412C5A844F009C5E1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F444E1482C5A844F009C5E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F444E1492C5A844F009C5E1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F444E14B2C5A844F009C5E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterNutButton/Preview Content\"";
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BetterNutButton/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F444E14C2C5A844F009C5E1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BetterNutButton/Preview Content\"";
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BetterNutButton/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F444E14E2C5A844F009C5E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterNutButton.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BetterNutButton";
+			};
+			name = Debug;
+		};
+		F444E14F2C5A844F009C5E1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButtonTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BetterNutButton.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BetterNutButton";
+			};
+			name = Release;
+		};
+		F444E1512C5A844F009C5E1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButtonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BetterNutButton;
+			};
+			name = Debug;
+		};
+		F444E1522C5A844F009C5E1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5KKZ9Y2Z82;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = LPQvist.BetterNutButtonUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = BetterNutButton;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F444E1212C5A844E009C5E1B /* Build configuration list for PBXProject "BetterNutButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F444E1482C5A844F009C5E1B /* Debug */,
+				F444E1492C5A844F009C5E1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F444E14A2C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F444E14B2C5A844F009C5E1B /* Debug */,
+				F444E14C2C5A844F009C5E1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F444E14D2C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButtonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F444E14E2C5A844F009C5E1B /* Debug */,
+				F444E14F2C5A844F009C5E1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F444E1502C5A844F009C5E1B /* Build configuration list for PBXNativeTarget "BetterNutButtonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F444E1512C5A844F009C5E1B /* Debug */,
+				F444E1522C5A844F009C5E1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F444E11E2C5A844E009C5E1B /* Project object */;
+}
