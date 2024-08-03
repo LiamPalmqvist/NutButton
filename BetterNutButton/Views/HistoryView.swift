@@ -58,11 +58,12 @@ struct HistoryView: View {
 						}
 					}
 					
-					Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
-						.font(Font.custom("LEMONMILK-Regular", size: 35))
-						.frame(width: 350, alignment: .leading)
-						.padding(.bottom, -10)
-					
+					if (nuts.count != 0) {
+						Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
+							.font(Font.custom("LEMONMILK-Regular", size: 35))
+							.frame(width: 350, alignment: .leading)
+							.padding(.bottom, -10)
+					}
 					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
 		
 						if (index < nuts.count-1) {

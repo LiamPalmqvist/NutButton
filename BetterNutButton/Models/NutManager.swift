@@ -23,7 +23,7 @@ class NutManager: ObservableObject {
 			appropriateFor: nil,
 			create: false
 		)
-		.appendingPathComponent("nuts.data")
+		.appendingPathComponent("scrums.data")
 	}
 	
 	// this is an async function (to prioritise loading the user's View)
