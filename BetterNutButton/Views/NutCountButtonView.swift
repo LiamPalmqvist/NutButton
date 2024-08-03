@@ -9,11 +9,11 @@ import SwiftUI
 
 struct NutCountButtonView: View {
 	@Binding var nuts: [Nut]
-	@State private var isPresentingSettings = false
+	@State private var isPresentingHistory = false
 	
 	var body: some View {
 		Button {
-			isPresentingSettings = true
+			isPresentingHistory = true
 		} label: {
 			ZStack {
 				Rectangle()
@@ -30,8 +30,8 @@ struct NutCountButtonView: View {
 					.background(Color("ContainerColor"))
 					.cornerRadius(45)
 			}
-		}.sheet(isPresented: $isPresentingSettings) {
-			SettingsView(nuts: $nuts)
+		}.sheet(isPresented: $isPresentingHistory) {
+			HistoryView(nuts: $nuts)
 		}
 	}
 }

@@ -23,11 +23,11 @@ class NutManager: ObservableObject {
 			appropriateFor: nil,
 			create: false
 		)
-		.appendingPathComponent("scrums.data")
+		.appendingPathComponent("nuts.data")
 	}
 	
 	// this is an async function (to prioritise loading the user's View)
-	// that will look for the "scrums.data" file in the user's documents
+	// that will look for the "nuts.data" file in the user's documents
 	// folder to load the persistant data.
 	func load() async throws {
 		// Create a task to run async
@@ -38,12 +38,14 @@ class NutManager: ObservableObject {
 			guard let data = try? Data(contentsOf: fileURL) else {
 				return []
 			}
-			// run a json decoder to decode the data if exists
-			let dailyScrums = try JSONDecoder().decode([Nut].self, from: data)
-			return dailyScrums
+			// run a json decoder to decode the data if exists and sort by date
+			let allNuts: [Nut] = try JSONDecoder().decode([Nut].self, from: data).sorted { ($0.time as Date) < ($1.time as Date) }
+			
+			return allNuts
 		}
 		// finally, run the task async and return the value
 		let nuts = try await task.value
+	
 		self.nuts = nuts
 	}
 	
@@ -62,6 +64,12 @@ class NutManager: ObservableObject {
 		}
 		// the "_" means we aren't interested in the result of the task
 		_ = try await task.value
+	}
+	
+	// This function allows for nuts to be exported to a desired directory
+	// Async for the same reason as earlier
+	func export(nuts: [Nut]) async throws {
+		
 	}
 	
 }

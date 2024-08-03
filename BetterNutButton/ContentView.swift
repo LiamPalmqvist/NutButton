@@ -18,6 +18,11 @@ struct ContentView: View {
 				.ignoresSafeArea()
 			
 			VStack {
+				HStack {
+					Spacer()
+					SettingsButton()
+						.padding(.trailing, 20)
+				}
 				Spacer()
 				MainButtonView(nuts: $nuts)
 				Text("NUTS")

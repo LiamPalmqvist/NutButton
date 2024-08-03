@@ -18,7 +18,9 @@
 		F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1562C5A8823009C5E1B /* NutManager.swift */; };
 		F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E1592C5A92EC009C5E1B /* MainButtonView.swift */; };
 		F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */; };
-		F444E15F2C5AB2EA009C5E1B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */; };
+		F444E15F2C5AB2EA009C5E1B /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */; };
+		F454473C2C5E4DEE001CBDE6 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */; };
+		F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454473D2C5E509B001CBDE6 /* SettingsView.swift */; };
 		F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484A9A32C5C35A6003C2370 /* ListItem.swift */; };
 		F484A9A82C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */; };
 		F484A9A92C5C3936003C2370 /* LEMONMILK-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */; };
@@ -62,7 +64,9 @@
 		F444E1562C5A8823009C5E1B /* NutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutManager.swift; sourceTree = "<group>"; };
 		F444E1592C5A92EC009C5E1B /* MainButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonView.swift; sourceTree = "<group>"; };
 		F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutCountButtonView.swift; sourceTree = "<group>"; };
-		F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
+		F454473D2C5E509B001CBDE6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F484A9A32C5C35A6003C2370 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F484A9A52C5C3936003C2370 /* LEMONMILK-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Medium.ttf"; sourceTree = "<group>"; };
 		F484A9A62C5C3936003C2370 /* LEMONMILK-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Regular.ttf"; sourceTree = "<group>"; };
@@ -170,8 +174,10 @@
 			children = (
 				F444E1592C5A92EC009C5E1B /* MainButtonView.swift */,
 				F444E15B2C5AAE72009C5E1B /* NutCountButtonView.swift */,
-				F444E15E2C5AB2EA009C5E1B /* SettingsView.swift */,
+				F444E15E2C5AB2EA009C5E1B /* HistoryView.swift */,
 				F484A9A32C5C35A6003C2370 /* ListItem.swift */,
+				F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */,
+				F454473D2C5E509B001CBDE6 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,10 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F444E15F2C5AB2EA009C5E1B /* SettingsView.swift in Sources */,
+				F444E15F2C5AB2EA009C5E1B /* HistoryView.swift in Sources */,
+				F454473C2C5E4DEE001CBDE6 /* SettingsButton.swift in Sources */,
 				F444E15C2C5AAE72009C5E1B /* NutCountButtonView.swift in Sources */,
 				F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */,
 				F444E1572C5A8823009C5E1B /* NutManager.swift in Sources */,
+				F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */,
 				F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */,
 				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
 				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,
