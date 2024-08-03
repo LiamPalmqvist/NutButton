@@ -14,34 +14,45 @@ struct ContentView: View {
 	let saveAction: ()-> Void
 	
 	var body: some View {
-		ZStack {
-			Color("BackgroundColor")
-				.ignoresSafeArea()
-			
-			VStack {
-				HStack {
+		GeometryReader {proxy in
+			ZStack {
+				Color("BackgroundColor")
+					.ignoresSafeArea()
+				
+				VStack {
+					HStack {
+						Spacer()
+						SettingsButton()
+							.padding(.trailing, 20)
+					}
 					Spacer()
-					SettingsButton()
-						.padding(.trailing, 20)
+					MainButtonView(nuts: $nuts)
+					Text("NUTS")
+						.font(Font
+							.custom("LEMONMILK-Regular", size: 56))
+						.foregroundColor(Color("TextColor"))
+					NutCountButtonView(nuts: $nuts)
+					Spacer()
+					Spacer()
 				}
-				Spacer()
-				MainButtonView(nuts: $nuts)
-				Text("NUTS")
-					.font(Font
-						.custom("LEMONMILK-Regular", size: 56))
-					.foregroundColor(Color("TextColor"))
-				NutCountButtonView(nuts: $nuts)
-				Spacer()
-				Spacer()
+				.onChange(of: scenePhase) {
+					if (scenePhase == .inactive) { saveAction() }
+				}.onAppear {
+					requestOrientations(.portrait) // request initial portrait orientation
+					AppDelegate.orientationLock = .portrait // set it for good
+				}
 			}
-			.onChange(of: scenePhase) {
-				if (scenePhase == .inactive) { saveAction() }
-			}
-		}.onAppear {
-			UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
-			AppDelegate.orientationLock = .portrait // And making sure it stays that way
 		}
-		
+	}
+	
+	private func requestOrientations(_ orientations: UIInterfaceOrientationMask) {
+		if #available(iOS 16.0, *) {
+			if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+				scene.requestGeometryUpdate(.iOS(interfaceOrientations: orientations)) { error in
+					// Handle denial of request.
+				}
+			}
+		}
 	}
 		
 }
