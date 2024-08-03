@@ -43,10 +43,12 @@ struct HistoryView: View {
 						.font(Font.custom("LEMONMILK-Regular", size: 45))
 						.padding(.bottom, 10)
 						.padding(.top, 30)
+						.foregroundColor(Color("TextColor"))
 					
 					Text("Time since last nut")
 						.font(Font.custom("LEMONMILK-Regular", size: 30))
 						.padding(.bottom, -25.0)
+						.foregroundColor(Color("TextColor"))
 					ZStack {
 						Rectangle().foregroundColor(Color("ContainerColor"))
 							.frame(width: 375, height: 50)
@@ -55,6 +57,7 @@ struct HistoryView: View {
 						VStack {
 							Text(intervalFormatter.string(from: delta) ?? "0")
 								.font(Font.custom("LEMONMILK-Regular", size: 22))
+								.foregroundColor(Color("TextColor"))
 						}
 					}
 					
@@ -63,6 +66,7 @@ struct HistoryView: View {
 							.font(Font.custom("LEMONMILK-Regular", size: 35))
 							.frame(width: 350, alignment: .leading)
 							.padding(.bottom, -10)
+							.foregroundColor(Color("TextColor"))
 					}
 					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
 		
@@ -119,7 +123,8 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
 	static var previews: some View {
-		HistoryView(nuts: .constant(Nut.sampleData))
+		HistoryView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
+		HistoryView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
 	}
 }
 

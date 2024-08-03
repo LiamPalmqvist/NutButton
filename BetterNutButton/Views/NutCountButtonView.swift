@@ -28,6 +28,7 @@ struct NutCountButtonView: View {
 					.padding(.all)
 					.padding(.horizontal)
 					.background(Color("ContainerColor"))
+					.foregroundColor(Color("TextColor"))
 					.cornerRadius(45)
 			}
 		}.sheet(isPresented: $isPresentingHistory) {
@@ -38,6 +39,7 @@ struct NutCountButtonView: View {
 
 struct NutCountButtonView_Previews: PreviewProvider {
 	static var previews: some View {
-		NutCountButtonView(nuts: .constant(Nut.sampleData))
+		NutCountButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
+		NutCountButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
 	}
 }

@@ -36,6 +36,7 @@ struct ListItem: View {
 								.font(Font
 									.custom("LEMONMILK-Regular", size: 35))
 								.multilineTextAlignment(.leading)
+								.foregroundColor(Color("TextColor"))
 							Spacer()
 						}
 							
@@ -46,6 +47,7 @@ struct ListItem: View {
 								.font(Font
 									.custom("LEMONMILK-Regular", size: 35))
 								.multilineTextAlignment(.leading)
+								.foregroundColor(Color("TextColor"))
 							Spacer()
 						}
 					} else {
@@ -54,12 +56,14 @@ struct ListItem: View {
 								.font(Font.custom("LEMONMILK-Regular", size:35))
 								.multilineTextAlignment(.leading)
 								.frame(alignment: .leading)
+								.foregroundColor(Color("TextColor"))
 							Spacer()
 						}
 					}
 					HStack {
 						Text(formatDate(format: "HH:mm:ss", date: parsedDate))
 							.font(Font.custom("LEMONMILK-Regular", size:20))
+							.foregroundColor(Color("TextColor"))
 						Spacer()
 					}
 					
@@ -76,6 +80,7 @@ struct ListItem: View {
 					Image(systemName: "plus")
 						.font(.largeTitle.weight(.bold))
 						.rotationEffect(.degrees(45))
+						.foregroundColor(Color.white)
 				}
 				.onTapGesture {
 					delete(at: assocNut)
@@ -107,5 +112,7 @@ struct ListItem_Previews: PreviewProvider {
 	static var previews: some View {
 		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData))
 			.preferredColorScheme(.dark)
+		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData))
+			.preferredColorScheme(.light)
 	}
 }

@@ -45,6 +45,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
 	// need to provide a constant for the data
 	static var previews: some View {
-		ContentView(nuts: .constant(Nut.sampleData), saveAction: {})
+		ContentView(nuts: .constant(Nut.sampleData), saveAction: {}).preferredColorScheme(.dark)
+		ContentView(nuts: .constant(Nut.sampleData), saveAction: {}).preferredColorScheme(.light)
 	}
 }

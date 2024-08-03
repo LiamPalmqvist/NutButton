@@ -11,25 +11,26 @@ struct SettingsView: View {
 	
 	
 	var body: some View {
-		Button()
-		{
+		
+		ZStack {
+			Color("BackgroundColor")
+				.ignoresSafeArea()
 			
-		} label: {
-			ZStack {
-				Circle()
-					.frame(width: 55)
-					.foregroundColor(Color("ContainerColor"))
-				Image(systemName: "gear")
-					.font(.largeTitle.weight(.bold))
-					.rotationEffect(.degrees(45))
-					.foregroundColor(Color("TextColor"))
-			}
+			Circle()
+				.frame(width: 55)
+				.foregroundColor(Color("ContainerColor"))
+			Image(systemName: "gear")
+				.font(.largeTitle.weight(.bold))
+				.rotationEffect(.degrees(45))
+				.foregroundColor(Color("TextColor"))
 		}
+		
 	}
 }
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView()
+		SettingsView().preferredColorScheme(.dark)
+		SettingsView().preferredColorScheme(.light)
 	}
 }
