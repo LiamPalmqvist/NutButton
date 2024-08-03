@@ -23,6 +23,7 @@
 		F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F454473D2C5E509B001CBDE6 /* SettingsView.swift */; };
 		F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484A9A32C5C35A6003C2370 /* ListItem.swift */; };
 		F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */; };
+		F4E5F3F82C5EC51200EB5976 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3F72C5EC51200EB5976 /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		F484A9A32C5C35A6003C2370 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		F484A9C22C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Regular-copy.ttf"; sourceTree = "<group>"; };
 		F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LEMONMILK-Medium-copy.ttf"; sourceTree = "<group>"; };
+		F4E5F3F72C5EC51200EB5976 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				F484A9A32C5C35A6003C2370 /* ListItem.swift */,
 				F454473B2C5E4DEE001CBDE6 /* SettingsButton.swift */,
 				F454473D2C5E509B001CBDE6 /* SettingsView.swift */,
+				F4E5F3F72C5EC51200EB5976 /* UIButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */,
 				F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */,
 				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
+				F4E5F3F82C5EC51200EB5976 /* UIButton.swift in Sources */,
 				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,
 				F444E1552C5A847C009C5E1B /* Nut.swift in Sources */,
 			);

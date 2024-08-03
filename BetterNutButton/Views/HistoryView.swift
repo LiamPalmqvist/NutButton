@@ -50,11 +50,12 @@ struct HistoryView: View {
 						.padding(.bottom, -25.0)
 						.foregroundColor(Color("TextColor"))
 					ZStack {
-						Rectangle().foregroundColor(Color("ContainerColor"))
+						RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+							.foregroundColor(Color("ContainerColor"))
 							.frame(width: 375, height: 50)
-							.cornerRadius(15)
+							.clipShape(.buttonBorder)
 							.padding(.vertical)
-						VStack {
+							VStack {
 							Text(intervalFormatter.string(from: delta) ?? "0")
 								.font(Font.custom("LEMONMILK-Regular", size: 22))
 								.foregroundColor(Color("TextColor"))

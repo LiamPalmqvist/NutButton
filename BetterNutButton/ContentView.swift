@@ -22,7 +22,7 @@ struct ContentView: View {
 				VStack {
 					HStack {
 						Spacer()
-						SettingsButton()
+						SettingsButton(nuts: $nuts)
 							.padding(.trailing, 20)
 					}
 					Spacer()

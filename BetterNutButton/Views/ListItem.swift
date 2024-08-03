@@ -22,10 +22,9 @@ struct ListItem: View {
 	
 	var body: some View {
 		ZStack {
-			Rectangle()
+			RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
 				.foregroundColor(Color("ContainerColor"))
 				.frame(width: 375, height: 100)
-				.cornerRadius(15)
 			
 			HStack {
 				VStack {
@@ -83,7 +82,7 @@ struct ListItem: View {
 						.foregroundColor(Color.white)
 				}
 				.onTapGesture {
-					delete(at: assocNut)
+					nuts.remove(at: assocNut)
 				}
 				.padding(.trailing, 30)
 				
@@ -98,12 +97,6 @@ struct ListItem: View {
 		let returnString = dateFormatter.string(from: date)
 		dateFormatter.dateFormat = "d MMMM YYYY - HH:mm:ss"
 		return returnString
-	}
-	
-	
-	func delete(at offsets: Int)
-	{
-		nuts.remove(at: offsets)
 	}
 	
 }
