@@ -46,7 +46,7 @@ struct UIButton: View {
 			Text(bodyText)
 				.font(Font.custom("LEMONMILK-Regular", size: 35))
 				.frame(width: 350 + CGFloat(scale))
-				.foregroundColor(Color("TextColor"))
+				.foregroundColor(Color(.white))
 		}
 		.frame(width: 360, height: 80)
 		.onTapGesture {
