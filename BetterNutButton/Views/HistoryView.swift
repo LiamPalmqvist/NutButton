@@ -77,6 +77,7 @@ struct HistoryView: View {
 									.font(Font.custom("LEMONMILK-Regular", size: 35))
 									.frame(width: 350, alignment: .leading)
 									.padding(.bottom, -10)
+									.foregroundColor(Color("TextColor"))
 							}
 						}
 						

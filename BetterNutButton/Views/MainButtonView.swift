@@ -54,6 +54,7 @@ struct MainButtonView: View {
 
 struct MainButtonView_Previews: PreviewProvider {
 	static var previews: some View {
-		MainButtonView(nuts: .constant(Nut.sampleData))
+		MainButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
+		MainButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
 	}
 }

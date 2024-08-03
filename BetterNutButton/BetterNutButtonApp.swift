@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct BetterNutButtonApp: App {
+	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 	@StateObject private var store = NutManager()
     
 	var body: some Scene {

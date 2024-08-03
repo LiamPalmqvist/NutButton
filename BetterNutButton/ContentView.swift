@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+
 	@Binding var nuts: [Nut]
 	@Environment(\.scenePhase) private var scenePhase
 	let saveAction: ()-> Void
@@ -36,10 +37,22 @@ struct ContentView: View {
 			.onChange(of: scenePhase) {
 				if (scenePhase == .inactive) { saveAction() }
 			}
+		}.onAppear {
+			UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation") // Forcing the rotation to portrait
+			AppDelegate.orientationLock = .portrait // And making sure it stays that way
 		}
 		
 	}
 		
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+		
+	static var orientationLock = UIInterfaceOrientationMask.all
+
+	func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+		return AppDelegate.orientationLock
+	}
 }
 
 struct ContentView_Previews: PreviewProvider {

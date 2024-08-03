@@ -45,7 +45,7 @@ class NutManager: ObservableObject {
 		}
 		// finally, run the task async and return the value
 		let nuts = try await task.value
-	
+		
 		self.nuts = nuts
 	}
 	
