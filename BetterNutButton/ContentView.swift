@@ -26,7 +26,7 @@ struct ContentView: View {
 							.padding(.trailing, 20)
 					}
 					Spacer()
-					MainButtonView(nuts: $nuts)
+					MainButtonView(action: {nuts.append(Nut(time:Date.now))})
 					Text("NUTS")
 						.font(Font
 							.custom("LEMONMILK-Regular", size: 56))

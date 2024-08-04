@@ -53,7 +53,7 @@ struct UIButton: View {
 		.onTapGesture {
 			action()
 		}
-		.onLongPressGesture(minimumDuration: 1) {
+		.onLongPressGesture(minimumDuration: 100, maximumDistance: CGFloat(360)) {
 		} onPressingChanged: { inProgress in
 			isAnimating.toggle()
 			switch isAnimating

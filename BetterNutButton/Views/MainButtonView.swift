@@ -9,26 +9,34 @@
 import SwiftUI
 
 struct MainButtonView: View {
-	@Binding var nuts: [Nut]
 	@State private var scale = 290.0
 	@State private var isAnimating = false;
 	
+	private var _action: () -> Void
+	
+	var action: () -> Void {
+		return _action
+	}
+	
+	init(action: @escaping () -> Void) {
+		self._action = action
+	}
+	
 	var body: some View {
-		Button {
-			nuts.append(Nut(time:Date.now))
-		} label: {
-			ZStack {
-				Circle()
-					.fill(Color("BigButtonColor"))
-					.padding(.all)
-				Image("chestnut")
-					.resizable()
-					.aspectRatio(contentMode: .fit)
-					.frame(width: scale, height: scale)
-			}
+		
+		ZStack {
+			Circle()
+				.fill(Color("BigButtonColor"))
+				.padding(.all)
+			Image("chestnut")
+				.resizable()
+				.aspectRatio(contentMode: .fit)
+				.frame(width: scale, height: scale)
 		}
-		.onLongPressGesture(minimumDuration: 0)
-		{
+		.onTapGesture {
+			action()
+		}
+		.onLongPressGesture(minimumDuration: 100, maximumDistance: CGFloat(290)) {
 		} onPressingChanged: { inProgress in
 			isAnimating.toggle()
 			switch isAnimating
@@ -54,7 +62,7 @@ struct MainButtonView: View {
 
 struct MainButtonView_Previews: PreviewProvider {
 	static var previews: some View {
-		MainButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
-		MainButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
+		MainButtonView(action: {}).preferredColorScheme(.dark)
+		MainButtonView(action: {}).preferredColorScheme(.light)
 	}
 }
