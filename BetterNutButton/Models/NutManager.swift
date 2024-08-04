@@ -66,9 +66,41 @@ class NutManager: ObservableObject {
 		_ = try await task.value
 	}
 	
+	// This function allows for nuts to be imported to the main file "nuts.json"
+	// The function takes a CSV formatted {id: Int, time: Date} OR {id: UUID, time: Date} 
+	// and represents it as nuts
+	// Note that the UUID of the nuts must be formatted from the initial Int if
+	// importing from Android. Otherwise carry on with UUID.
+	func importCSVtoNuts(stringCSV: String) -> [Nut] {
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+		// Create data array to hold csv data
+		var dataArray: [Nut] = []
+		
+		// parse the CSV into rows
+		let csvRows: [String] = stringCSV.components(separatedBy: "\n")
+
+		// append each row (1D array) to dataArray (filling the 2D array)
+		for i in 0..<csvRows.count-1 {
+			let date: Date = dateFormatter.date(from: csvRows[i].components(separatedBy: ",")[1]) ?? Date()
+			
+			dataArray.append(Nut(time: date))
+		}
+		
+		//print(csvColumns)
+
+		return dataArray
+	}
+	
+
+	func importNuts(file: FileDocument) async throws {
+		
+	}
+	
 	// This function allows for nuts to be exported to a desired directory
 	// Async for the same reason as earlier
-	func export(nuts: [Nut]) async throws {
+	func exportNuts(nuts: [Nut]) async throws {
 		
 	}
 	
