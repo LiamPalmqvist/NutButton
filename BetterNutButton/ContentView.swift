@@ -21,6 +21,8 @@ struct ContentView: View {
 				
 				VStack {
 					HStack {
+						StatsButton(nuts: $nuts)
+							.padding(.leading, 20)
 						Spacer()
 						SettingsButton(nuts: $nuts)
 							.padding(.trailing, 20)

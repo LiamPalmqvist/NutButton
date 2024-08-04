@@ -58,7 +58,7 @@ struct SettingsView: View {
 				UIButton(action: {
 					exportScreenShowing = true
 					exportDocument = NutManager().exportNutsToCsv(nuts: nuts)
-					//print("Exported", exportDocument)
+					print("Exported")
 				}, bodyText: "Export", backgroundColor: Color("accentGreen"))
 				.fileExporter(
 					isPresented: $exportScreenShowing,
