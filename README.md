@@ -12,11 +12,10 @@ Download the latest IPA in the Releases section under "latest.ipa"!
 - [x] Dividers between months and years
 - [x] Ability to undo and reset NUT count
 - [x] Fancy looking settings window with animations
+- [x] Ability to export NUTs added
+- [x] Ability to import NUTs stored in a CSV
 
 ## Features left to be added:
 - [ ] Ability to add NUTs manually
-- [ ] Ability to export NUTs added
-- [ ] Ability to import NUTs stored in a CSV
 - [ ] Ability to change App Icon
 - [ ] Ability to change app tint
-
