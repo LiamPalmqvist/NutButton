@@ -69,6 +69,7 @@ struct HistoryView: View {
 							.padding(.bottom, -10)
 							.foregroundColor(Color("TextColor"))
 					}
+					
 					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
 		
 						if (index < nuts.count-1) {

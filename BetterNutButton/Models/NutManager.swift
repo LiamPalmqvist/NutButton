@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 // ObservableObject is a class-constrained protocol for connecting external model data to SwiftUI Views
 // Essentially it takes data outside of the non-persistant memory and makes it available to use in SwiftUI Views
@@ -93,15 +94,47 @@ class NutManager: ObservableObject {
 		return dataArray
 	}
 	
-
-	func importNuts(file: FileDocument) async throws {
-		
-	}
-	
 	// This function allows for nuts to be exported to a desired directory
 	// Async for the same reason as earlier
-	func exportNuts(nuts: [Nut]) async throws {
+	func exportNutsToCsv(nuts: [Nut]) -> CSV{
 		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+		
+		// Create array for which to export
+		var csvRows: String = ""
+		
+		// Take the ID and Date of the nuts and turn them into [String, String] format
+		for i in (0..<nuts.count) {
+			csvRows += String(i) + "," + dateFormatter.string(from: nuts[i].time) + "\n"
+		}
+		
+		return CSV(csvRows: csvRows)
+	}
+	
+	struct CSV: FileDocument {
+		// Tell the system we support exporting to CSVs
+		static var readableContentTypes = [UTType.commaSeparatedText]
+		
+		// By default the document is empty
+		var csvRows: String = ""
+		
+		// Create an empty document initialiser
+		init(csvRows: String) {
+			self.csvRows = csvRows
+		}
+		
+		// this initializer loads data that has been saved previously
+		init(configuration: ReadConfiguration) throws {
+			if let data = configuration.file.regularFileContents {
+				csvRows = String(decoding: data, as: UTF8.self)
+			}
+		}
+		
+		func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+			let data = Data(csvRows.utf8)
+			return FileWrapper(regularFileWithContents: data)
+		}
 	}
 	
 }

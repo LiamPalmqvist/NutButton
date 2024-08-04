@@ -23,6 +23,7 @@ struct UIButton: View {
 	var bodyText: String {
 		return _bodyText
 	}
+	
 	var backgroundColor: Color {
 		return _backgroundColor
 	}

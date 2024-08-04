@@ -11,7 +11,18 @@ import UniformTypeIdentifiers
 
 struct SettingsView: View {
 
-	@State private var isImporting: Bool = false
+	@State private var fileScreenShowing: Bool = false
+	@State private var _exportDocument: FileDocument
+	
+	private var exportDocument: FileDocument {
+		return _exportDocument
+	}
+	
+	init(fileScreenShowing: Bool = false, _exportDocument: FileDocument = NutManager.CSV(csvRows: ""), nuts: [Nut]) {
+		self.fileScreenShowing = fileScreenShowing
+		self._exportDocument = _exportDocument
+		self.nuts = nuts
+	}
 	
 	@Binding var nuts: [Nut]
 	var body: some View {
@@ -28,8 +39,15 @@ struct SettingsView: View {
 					}
 					print("Undid")
 				}, bodyText: "Undo", backgroundColor: Color("accentRed"))
+				
+				
+				
+				UIButton(action: {
+					fileScreenShowing = true
+					print("Imported")
+				}, bodyText: "Import", backgroundColor: Color("accentBlue"))
 				.fileImporter(
-					isPresented: $isImporting,
+					isPresented: $fileScreenShowing,
 					allowedContentTypes: [.commaSeparatedText],
 					allowsMultipleSelection: false) { result in
 						do {
@@ -44,14 +62,20 @@ struct SettingsView: View {
 						}
 					}
 				
-				
 				UIButton(action: {
-					isImporting = true
-					print("Imported")
-				}, bodyText: "Import", backgroundColor: Color("accentBlue"))
-					
-				UIButton(action: {
-					print("Exported") }, bodyText: "Export", backgroundColor: Color("accentGreen"))
+					fileScreenShowing = true
+					_exportDocument = NutManager().exportNutsToCsv(nuts: nuts)
+					print("Exported")
+				}, bodyText: "Export", backgroundColor: Color("accentGreen"))
+				.fileExporter(
+					isPresented: $fileScreenShowing,
+					document: exportDocument,
+					contentType: .commaSeparatedText,
+					defaultFilename: "nuts.csv") { result in
+						if case .failure(let error) = result {
+							print(error.localizedDescription)
+						}
+					}
 					
 				
 				UIButton(action: {
@@ -94,7 +118,7 @@ struct InputDocument: FileDocument {
 
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
-		SettingsView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
+		SettingsView(nuts: Nut.sampleData).preferredColorScheme(.dark)
+		SettingsView(nuts: Nut.sampleData).preferredColorScheme(.light)
 	}
 }
