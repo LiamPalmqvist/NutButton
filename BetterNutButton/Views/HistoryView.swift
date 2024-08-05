@@ -80,14 +80,6 @@ struct HistoryView: View {
 						print("Undid")
 					}, bodyText: "Undo", backgroundColor: Color(hex: appSettings.accent))
 					
-					UIButton(action: {
-						showingCalendar.toggle()
-						print("Undid")
-					}, bodyText: "add nut", backgroundColor: Color(hex: appSettings.accent))
-					.sheet(isPresented: $showingCalendar) {
-						CalendarView(nuts: $nuts, appSettings: $appSettings, showingCalendar: $showingCalendar)
-						}
-					
 					if (nuts.count != 0) {
 						Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
 							.font(Font.custom("LEMONMILK-Regular", size: 35))
