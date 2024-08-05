@@ -19,7 +19,8 @@ struct SettingsView: View {
 	@State var exportDocument: NutManager.CSV?
 	
 	let viewAmounts = ["50", "100", "250", "500", "All"]
-
+	let tintColours = [Color("accentBlue"), Color("accentCyan"), Color("accentGreen"), Color("accentOrange"), Color("accentPurple"), Color("accentRed")]
+	
 	var body: some View {
 		
 		ZStack {
@@ -39,14 +40,13 @@ struct SettingsView: View {
 					// =======================================
 					
 					HStack {
-						
-						Spacer()
-						
 						Text("History row limit")
 							.font(Font.custom("LEMONMILK-Regular", size: 25))
 							.frame(width: 280)
 							.foregroundColor(Color("TextColor"))
+							.padding(3)
 						
+						Spacer()
 						
 						Menu {
 							Picker(selection: $appSettings.historyRowLimit, label: Text(appSettings.historyRowLimit))
@@ -71,11 +71,30 @@ struct SettingsView: View {
 									.foregroundColor(Color("TextColor"))
 							}
 						}.frame(width: 60)
-						
-						
+							.padding(.trailing, 20)
+					}.padding(.bottom, -10)
+					
+					HStack {
+						Text("App Tint Colour")
+							.font(Font.custom("LEMONMILK-Regular", size: 25))
+							.foregroundColor(Color("TextColor"))
 						Spacer()
-						
 					}
+					.padding(.leading, 20)
+					.padding(.bottom, -5)
+					
+					HStack {
+						ForEach(tintColours, id: \.self) { colour in
+							Button(action: {appSettings.accent = colour.toHex(); print(appSettings.accent)}, label: {
+
+								Circle()
+									.foregroundColor(colour)
+									.frame(width: 50)
+									.padding(.horizontal, 3)
+
+							})
+						}
+					}.padding(.bottom)
 					
 					// =============================
 					// UNDO, IMPORT & EXPORT buttons
@@ -84,7 +103,7 @@ struct SettingsView: View {
 					UIButton(action: {
 						importScreenShowing = true
 						print("Imported")
-					}, bodyText: "Import", backgroundColor: Color("accentBlue"))
+					}, bodyText: "Import", backgroundColor: Color(hex: appSettings.accent))
 					.fileImporter(
 						isPresented: $importScreenShowing,
 						allowedContentTypes: [.commaSeparatedText],
@@ -105,7 +124,7 @@ struct SettingsView: View {
 						exportScreenShowing = true
 						exportDocument = NutManager().exportNutsToCsv(nuts: nuts)
 						print("Exported")
-					}, bodyText: "Export", backgroundColor: Color("accentGreen"))
+					}, bodyText: "Export", backgroundColor: Color(hex: appSettings.accent))
 					.fileExporter(
 						isPresented: $exportScreenShowing,
 						document: exportDocument,
@@ -119,7 +138,7 @@ struct SettingsView: View {
 					
 					UIButton(action: {
 						nuts.removeAll()
-					}, bodyText: "Reset", backgroundColor: Color("accentPurple"))
+					}, bodyText: "Reset", backgroundColor: Color(hex: appSettings.accent))
 					
 					Spacer()
 					
@@ -153,6 +172,27 @@ struct InputDocument: FileDocument {
 		return FileWrapper(regularFileWithContents: input.data(using: .utf8)!)
 	}
 
+}
+
+extension UIColor {
+  static func == (l: UIColor, r: UIColor) -> Bool {
+	var r1: CGFloat = 0
+	var g1: CGFloat = 0
+	var b1: CGFloat = 0
+	var a1: CGFloat = 0
+	l.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+	var r2: CGFloat = 0
+	var g2: CGFloat = 0
+	var b2: CGFloat = 0
+	var a2: CGFloat = 0
+	r.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+	return r1 == r2 && g1 == g2 && b1 == b2 && a1 == a2
+  }
+}
+func == (l: UIColor?, r: UIColor?) -> Bool {
+  let l = l ?? .clear
+  let r = r ?? .clear
+  return l == r
 }
 
 struct SettingsView_Previews: PreviewProvider {

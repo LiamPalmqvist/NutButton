@@ -80,9 +80,10 @@ extension Color {
 		var r: CGFloat = 0.0
 		var g: CGFloat = 0.0
 		var b: CGFloat = 0.0
-		var a: CGFloat = 0.0
+		var a: CGFloat = 1.0
 		
 		let length = hexSanitised.count
+
 		guard Scanner(string: hexSanitised).scanHexInt64(&rgb) else { return nil }
 		
 		if length == 6 {

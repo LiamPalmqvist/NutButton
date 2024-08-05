@@ -68,7 +68,7 @@ struct HistoryView: View {
 							nuts.remove(at: nuts.count-1)
 						}
 						print("Undid")
-					}, bodyText: "Undo", backgroundColor: Color("accentRed"))
+					}, bodyText: "Undo", backgroundColor: Color(hex: appSettings.accent))
 					
 					if (nuts.count != 0) {
 						Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
@@ -90,10 +90,10 @@ struct HistoryView: View {
 										.padding(.bottom, -10)
 										.foregroundColor(Color("TextColor"))
 								}
-								ListItem(parsedDate: .constant(nuts[nuts.count-index].time), assocNut: .constant(nuts.count-index), nuts: $nuts)
+								ListItem(parsedDate: .constant(nuts[nuts.count-index].time), assocNut: .constant(nuts.count-index), nuts: $nuts, appSettings: .constant(appSettings))
 							}
 							if (index == 0) {
-								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts)
+								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts, appSettings: .constant(appSettings))
 							}
 							
 						}
@@ -111,7 +111,7 @@ struct HistoryView: View {
 								}
 							}
 							
-							ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts)
+							ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts, appSettings: .constant(appSettings))
 						}
 					}
 					

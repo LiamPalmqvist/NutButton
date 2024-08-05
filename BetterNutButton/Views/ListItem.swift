@@ -11,6 +11,7 @@ struct ListItem: View {
 	@Binding var parsedDate: Date
 	@Binding var assocNut: Int
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
 	
 	private let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
@@ -75,7 +76,7 @@ struct ListItem: View {
 				ZStack {
 					Circle()
 						.frame(width: 50)
-						.foregroundColor(Color("accentRed"))
+						.foregroundColor(Color(hex: appSettings.accent))
 					Image(systemName: "plus")
 						.font(.largeTitle.weight(.bold))
 						.rotationEffect(.degrees(45))
@@ -103,9 +104,9 @@ struct ListItem: View {
 
 struct ListItem_Previews: PreviewProvider {
 	static var previews: some View {
-		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData))
+		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData))
 			.preferredColorScheme(.dark)
-		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData))
+		ListItem(parsedDate: .constant(Date.now), assocNut: .constant(0), nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData))
 			.preferredColorScheme(.light)
 	}
 }
