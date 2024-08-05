@@ -23,20 +23,28 @@ struct ContentView: View {
 				
 				VStack {
 					HStack {
-						StatsButton(nuts: $nuts)
-							.padding(.leading, 20)
+						
 						Spacer()
-						SettingsButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager)
-							.padding(.trailing, 20)
+						
+						HamburgerMenuButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager)
+							.padding(.trailing, 30)
 					}
-					Spacer()
 					MainButtonView(action: {nuts.append(Nut(time:Date.now))})
+						.padding(.top, -50)
 					Text("NUTS")
 						.font(Font
 							.custom("LEMONMILK-Regular", size: 56))
 						.foregroundColor(Color("TextColor"))
-					NutCountButtonView(nuts: $nuts, appSettings: $appSettings)
-					Spacer()
+						
+					Text(String(nuts.count))
+						.fontWeight(.bold)
+						.font(.system(size: 40))
+						.padding(.all)
+						.padding(.horizontal)
+						.background(Color("ContainerColor"))
+						.foregroundColor(Color("TextColor"))
+						.cornerRadius(45)
+					
 					Spacer()
 				}
 				.onChange(of: scenePhase) {

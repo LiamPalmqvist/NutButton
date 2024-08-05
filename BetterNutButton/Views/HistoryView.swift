@@ -28,8 +28,10 @@ struct HistoryView: View {
 		return formatter
 	}()
 	
-	@State var delta: TimeInterval = TimeInterval()
+	@State private var delta: TimeInterval = TimeInterval()
 	@State private var showingExporter = false
+	@State private var showingCalendar = false
+	@State private var pickedDate: Date = Date()
 	@Environment(\.isEnabled) private var loaded
 	
 	var body: some View {
@@ -70,6 +72,14 @@ struct HistoryView: View {
 						print("Undid")
 					}, bodyText: "Undo", backgroundColor: Color(hex: appSettings.accent))
 					
+					UIButton(action: {
+						showingCalendar.toggle()
+						print("Undid")
+					}, bodyText: "add nut", backgroundColor: Color(hex: appSettings.accent))
+					.sheet(isPresented: $showingCalendar) {
+						CalendarView(nuts: $nuts, appSettings: $appSettings, showingCalendar: $showingCalendar)
+						}
+					
 					if (nuts.count != 0) {
 						Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
 							.font(Font.custom("LEMONMILK-Regular", size: 35))
@@ -90,7 +100,7 @@ struct HistoryView: View {
 										.padding(.bottom, -10)
 										.foregroundColor(Color("TextColor"))
 								}
-								ListItem(parsedDate: .constant(nuts[nuts.count-index].time), assocNut: .constant(nuts.count-index), nuts: $nuts, appSettings: .constant(appSettings))
+								ListItem(parsedDate: .constant(nuts[nuts.count-(index+1)].time), assocNut: .constant(nuts.count-(index+1)), nuts: $nuts, appSettings: .constant(appSettings))
 							}
 							if (index == 0) {
 								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts, appSettings: .constant(appSettings))
