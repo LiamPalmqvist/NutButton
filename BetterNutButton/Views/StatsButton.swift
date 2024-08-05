@@ -10,19 +10,23 @@ import SwiftUI
 struct StatsButton: View {
 	@Binding var nuts: [Nut]
 	@State var isPresentingStats = false
+	@State var iconColor: Color
+	
 	var body: some View {
 		Button()
 		{
 			isPresentingStats = true
 		} label: {
 			ZStack {
+				/*
 				Circle()
 					.frame(width: 55)
 					.foregroundColor(Color("ContainerColor"))
+				*/
 				Image(systemName: "chart.bar.fill")
 					.font(.title)
-					
-					.foregroundColor(Color("TextColor"))
+					.frame(width: 40, height: 40)
+					.foregroundColor(iconColor)
 			}
 		}
 		.sheet(isPresented: $isPresentingStats) {
@@ -34,6 +38,6 @@ struct StatsButton: View {
 
 struct StatsButton_Previews: PreviewProvider {
 	static var previews: some View {
-		StatsButton(nuts: .constant(Nut.sampleData))
+		StatsButton(nuts: .constant(Nut.sampleData), iconColor: Color("TextColor"))
 	}
 }

@@ -14,52 +14,65 @@ struct StatsView: View {
 	@State var nutsInYear: Int = 0
 	
 	var body: some View {
-		VStack {
-			Text("Average nut interval")
-				.font(Font.custom("LEMONMILK-Regular", size: 30))
-				.padding(.bottom, -25.0)
-				.foregroundColor(Color("TextColor"))
-			ZStack {
-				RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-					.foregroundColor(Color("ContainerColor"))
-					.frame(width: 375, height: 50)
-					.clipShape(.buttonBorder)
-					.padding(.vertical)
-				VStack {
-					Text(intervalFormatter.string(from: delta) ?? "0")
-						.font(Font.custom("LEMONMILK-Regular", size: 22))
-						.foregroundColor(Color("TextColor"))
-				}
-			}
-			.onAppear(perform: {
-				Task {
-					delta = calculateAverageInterval(nuts: nuts)
-					nutsInYear = calculateNutsInYear(nuts: nuts)
-				}
-			})
+		ZStack {
+			Color("BackgroundColor")
+				.ignoresSafeArea()
 			
-			Text("Total nuts in year")
-				.font(Font.custom("LEMONMILK-Regular", size: 30))
-				.padding(.bottom, -25.0)
-				.foregroundColor(Color("TextColor"))
-			ZStack {
-				RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-					.foregroundColor(Color("ContainerColor"))
-					.frame(width: 375, height: 50)
-					.clipShape(.buttonBorder)
-					.padding(.vertical)
-				VStack {
-					Text(String(nutsInYear))
-						.font(Font.custom("LEMONMILK-Regular", size: 22))
-						.foregroundColor(Color("TextColor"))
+			VStack {
+				Text("Insights")
+					.font(Font.custom("LEMONMILK-Regular", size: 45))
+					.padding(.bottom, 10)
+					.padding(.top, 30)
+					.foregroundColor(Color("TextColor"))
+				
+				Text("Average nut interval")
+					.font(Font.custom("LEMONMILK-Regular", size: 30))
+					.padding(.bottom, -25.0)
+					.foregroundColor(Color("TextColor"))
+				ZStack {
+					RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+						.foregroundColor(Color("ContainerColor"))
+						.frame(width: 375, height: 50)
+						.clipShape(.buttonBorder)
+						.padding(.vertical)
+					VStack {
+						Text(intervalFormatter.string(from: delta) ?? "0")
+							.font(Font.custom("LEMONMILK-Regular", size: 22))
+							.foregroundColor(Color("TextColor"))
+					}
 				}
+				.onAppear(perform: {
+					Task {
+						delta = calculateAverageInterval(nuts: nuts)
+						nutsInYear = calculateNutsInYear(nuts: nuts)
+					}
+				})
+				
+				Text("Total nuts in year")
+					.font(Font.custom("LEMONMILK-Regular", size: 30))
+					.padding(.bottom, -25.0)
+					.foregroundColor(Color("TextColor"))
+				ZStack {
+					RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+						.foregroundColor(Color("ContainerColor"))
+						.frame(width: 375, height: 50)
+						.clipShape(.buttonBorder)
+						.padding(.vertical)
+					VStack {
+						Text(String(nutsInYear))
+							.font(Font.custom("LEMONMILK-Regular", size: 22))
+							.foregroundColor(Color("TextColor"))
+					}
+				}
+				.onAppear(perform: {
+					Task {
+						delta = calculateAverageInterval(nuts: nuts)
+						nutsInYear = calculateNutsInYear(nuts: nuts)
+					}
+				})
+				
+				Spacer()
 			}
-			.onAppear(perform: {
-				Task {
-					delta = calculateAverageInterval(nuts: nuts)
-					nutsInYear = calculateNutsInYear(nuts: nuts)
-				}
-			})
 		}
 	}
 	
