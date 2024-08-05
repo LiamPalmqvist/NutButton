@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NutCountButtonView: View {
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
 	@State private var isPresentingHistory = false
 	
 	var body: some View {
@@ -16,12 +17,6 @@ struct NutCountButtonView: View {
 			isPresentingHistory = true
 		} label: {
 			ZStack {
-				Rectangle()
-					.fill(.clear)
-					.cornerRadius(45)
-					.padding(.all)
-					.frame(width: 150, height:100)
-				
 				Text(String(nuts.count))
 					.fontWeight(.bold)
 					.font(.system(size: 40))
@@ -32,14 +27,14 @@ struct NutCountButtonView: View {
 					.cornerRadius(45)
 			}
 		}.sheet(isPresented: $isPresentingHistory) {
-			HistoryView(nuts: $nuts)
+			HistoryView(nuts: $nuts, appSettings: $appSettings)
 		}
 	}
 }
 
 struct NutCountButtonView_Previews: PreviewProvider {
 	static var previews: some View {
-		NutCountButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
-		NutCountButtonView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
+		NutCountButtonView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.dark)
+		NutCountButtonView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.light)
 	}
 }

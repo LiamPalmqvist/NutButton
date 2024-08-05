@@ -10,6 +10,7 @@ import Foundation
 
 struct HistoryView: View {
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
 	
 	private let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
@@ -62,28 +63,58 @@ struct HistoryView: View {
 						}
 					}
 					
+					UIButton(action: {
+						if (nuts.count > 0) {
+							nuts.remove(at: nuts.count-1)
+						}
+						print("Undid")
+					}, bodyText: "Undo", backgroundColor: Color("accentRed"))
+					
 					if (nuts.count != 0) {
 						Text(calculateMonth(date: nuts[nuts.count-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-1].time).components(separatedBy: " ")[2])
 							.font(Font.custom("LEMONMILK-Regular", size: 35))
 							.frame(width: 350, alignment: .leading)
 							.padding(.bottom, -10)
+							.padding(.top)
 							.foregroundColor(Color("TextColor"))
 					}
 					
-					ForEach((0..<nuts.count).reversed(), id: \.self) {index in
-		
-						if (index < nuts.count-1) {
-							if (calculateMonth(date: nuts[index].time) != calculateMonth(date: nuts[index+1].time))
-							{
-								Text(calculateMonth(date: nuts[index].time) + " " + dateFormatter.string(from: nuts[index].time).components(separatedBy: " ")[2])
-									.font(Font.custom("LEMONMILK-Regular", size: 35))
-									.frame(width: 350, alignment: .leading)
-									.padding(.bottom, -10)
-									.foregroundColor(Color("TextColor"))
+					if (appSettings.historyRowLimit != "All" && nuts.count > 0) {
+						ForEach((0..<(Int(appSettings.historyRowLimit) ?? 500)), id: \.self) {index in
+							if (index > 0 && index < nuts.count-1) {
+								if (calculateMonth(date: nuts[nuts.count-index].time) != calculateMonth(date: nuts[nuts.count-index-1].time))
+								{
+									Text(calculateMonth(date: nuts[nuts.count-index-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-index-1].time).components(separatedBy: " ")[2])
+										.font(Font.custom("LEMONMILK-Regular", size: 35))
+										.frame(width: 350, alignment: .leading)
+										.padding(.bottom, -10)
+										.foregroundColor(Color("TextColor"))
+								}
 							}
+							if (index == 0) {
+								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts)
+							}
+							else {
+								ListItem(parsedDate: .constant(nuts[nuts.count-index-1].time), assocNut: .constant(nuts.count-index-1), nuts: $nuts)
+							}
+							
 						}
-						
-						ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts)
+					} else {
+						ForEach((0..<nuts.count).reversed(), id: \.self) {index in
+			
+							if (index < nuts.count-1) {
+								if (calculateMonth(date: nuts[index].time) != calculateMonth(date: nuts[index+1].time))
+								{
+									Text(calculateMonth(date: nuts[index].time) + " " + dateFormatter.string(from: nuts[index].time).components(separatedBy: " ")[2])
+										.font(Font.custom("LEMONMILK-Regular", size: 35))
+										.frame(width: 350, alignment: .leading)
+										.padding(.bottom, -10)
+										.foregroundColor(Color("TextColor"))
+								}
+							}
+							
+							ListItem(parsedDate: .constant(nuts[index].time), assocNut: .constant(index), nuts: $nuts)
+						}
 					}
 					
 				}.onAppear(perform: {
@@ -126,8 +157,8 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
 	static var previews: some View {
-		HistoryView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.dark)
-		HistoryView(nuts: .constant(Nut.sampleData)).preferredColorScheme(.light)
+		HistoryView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.dark)
+		HistoryView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.light)
 	}
 }
 

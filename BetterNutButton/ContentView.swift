@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
 
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
+	@Binding var settingsManager: SettingsManager
 	@Environment(\.scenePhase) private var scenePhase
 	let saveAction: ()-> Void
 	
@@ -24,7 +26,7 @@ struct ContentView: View {
 						StatsButton(nuts: $nuts)
 							.padding(.leading, 20)
 						Spacer()
-						SettingsButton(nuts: $nuts)
+						SettingsButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager)
 							.padding(.trailing, 20)
 					}
 					Spacer()
@@ -33,7 +35,7 @@ struct ContentView: View {
 						.font(Font
 							.custom("LEMONMILK-Regular", size: 56))
 						.foregroundColor(Color("TextColor"))
-					NutCountButtonView(nuts: $nuts)
+					NutCountButtonView(nuts: $nuts, appSettings: $appSettings)
 					Spacer()
 					Spacer()
 				}
@@ -71,7 +73,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct ContentView_Previews: PreviewProvider {
 	// need to provide a constant for the data
 	static var previews: some View {
-		ContentView(nuts: .constant(Nut.sampleData), saveAction: {}).preferredColorScheme(.dark)
-		ContentView(nuts: .constant(Nut.sampleData), saveAction: {}).preferredColorScheme(.light)
+		ContentView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData), settingsManager: .constant(SettingsManager()), saveAction: {} ).preferredColorScheme(.dark)
+		ContentView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData), settingsManager: .constant(SettingsManager()), saveAction: {}).preferredColorScheme(.light)
 	}
 }
