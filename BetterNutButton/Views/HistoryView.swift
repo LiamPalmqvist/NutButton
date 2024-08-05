@@ -80,7 +80,7 @@ struct HistoryView: View {
 					}
 					
 					if (appSettings.historyRowLimit != "All" && nuts.count > 0) {
-						ForEach((0..<(Int(appSettings.historyRowLimit) ?? 500)), id: \.self) {index in
+						ForEach((0..<(Int(appSettings.historyRowLimit) ?? 500)-1), id: \.self) {index in
 							if (index > 0 && index < nuts.count-1) {
 								if (calculateMonth(date: nuts[nuts.count-index].time) != calculateMonth(date: nuts[nuts.count-index-1].time))
 								{
@@ -90,12 +90,10 @@ struct HistoryView: View {
 										.padding(.bottom, -10)
 										.foregroundColor(Color("TextColor"))
 								}
+								ListItem(parsedDate: .constant(nuts[nuts.count-index].time), assocNut: .constant(nuts.count-index), nuts: $nuts)
 							}
 							if (index == 0) {
 								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts)
-							}
-							else {
-								ListItem(parsedDate: .constant(nuts[nuts.count-index-1].time), assocNut: .constant(nuts.count-index-1), nuts: $nuts)
 							}
 							
 						}
@@ -158,7 +156,6 @@ struct HistoryView: View {
 struct HistoryView_Previews: PreviewProvider {
 	static var previews: some View {
 		HistoryView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.dark)
-		HistoryView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.light)
 	}
 }
 

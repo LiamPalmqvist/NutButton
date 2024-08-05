@@ -158,6 +158,5 @@ struct InputDocument: FileDocument {
 struct SettingsView_Previews: PreviewProvider {
 	static var previews: some View {
 		SettingsView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.dark)
-		SettingsView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(.light)
 	}
 }
