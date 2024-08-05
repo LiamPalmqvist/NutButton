@@ -10,15 +10,17 @@ import SwiftUI
 @main
 struct BetterNutButtonApp: App {
 	@UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-	@StateObject private var store = NutManager()
+	@StateObject private var nutStore = NutManager()
+	@StateObject private var settingsStore = SettingsManager()
     
 	var body: some Scene {
         WindowGroup {
-			ContentView(nuts: $store.nuts) {
+			ContentView(nuts: $nutStore.nuts, appSettings: $settingsStore.settings, settingsManager: .constant(settingsStore)) {
 				// Task that runs when the app's state changes to inactive
 				Task {
 					do {
-						try await store.save(nuts: store.nuts)
+						try await nutStore.save(nuts: nutStore.nuts)
+						try await settingsStore.save(settings: settingsStore.settings)
 					} catch {
 						fatalError(error.localizedDescription)
 					}
@@ -28,7 +30,8 @@ struct BetterNutButtonApp: App {
 			.task {
 				do {
 					// try to load the data in the store by calling the function that was written earlier
-					try await store.load()
+					try await nutStore.load()
+					try await settingsStore.load()
 				} catch {
 					fatalError(error.localizedDescription)
 				}

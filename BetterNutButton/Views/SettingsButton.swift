@@ -10,6 +10,9 @@ import SwiftUI
 struct SettingsButton: View {
 	@State var isPresentingSettings = false
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
+	@Binding var settingsManager: SettingsManager
+	
 	
 	var body: some View {
 		Button()
@@ -27,13 +30,13 @@ struct SettingsButton: View {
 			}
 		}
 		.sheet(isPresented: $isPresentingSettings) {
-			SettingsView(nuts: $nuts)
+			SettingsView(nuts: $nuts, appSettings: $appSettings)
 		}
 	}
 }
 
 struct SettingsButton_Previews: PreviewProvider {
 	static var previews: some View {
-		SettingsButton(nuts: .constant(Nut.sampleData))
+		SettingsButton(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData), settingsManager: .constant(SettingsManager()))
 	}
 }

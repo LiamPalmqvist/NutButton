@@ -26,9 +26,10 @@ struct StatsButton: View {
 			}
 		}
 		.sheet(isPresented: $isPresentingStats) {
-			SettingsView(nuts: $nuts)
+			StatsView(nuts: $nuts)
 		}
 	}
+	
 }
 
 struct StatsButton_Previews: PreviewProvider {

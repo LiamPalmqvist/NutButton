@@ -13,18 +13,18 @@ struct UIButton: View {
 	
 	
 	private var _action: () -> Void
-	private var _bodyText: String!
-	private var _backgroundColor: Color!
+	private var _bodyText: String
+	private var _backgroundColor: Color
 	
 	var action: () -> Void {
 		return _action
 	}
 	
-	var bodyText: String {
+	var bodyText: String! {
 		return _bodyText
 	}
 	
-	var backgroundColor: Color {
+	var backgroundColor: Color! {
 		return _backgroundColor
 	}
 	
