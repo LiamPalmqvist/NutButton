@@ -5,13 +5,20 @@
 //  Created by Liam Palmqvist on 04/08/2024.
 //
 
+import Charts
 import SwiftUI
+
+struct ChartData {
+	var timeDate: String
+	var count: Int
+}
 
 struct StatsView: View {
 	@Binding var nuts: [Nut]
 	
 	@State var delta: TimeInterval = TimeInterval()
 	@State var nutsInYear: Int = 0
+	@State var timesPerMonthData: [ChartData] = []
 	
 	var body: some View {
 		ZStack {
@@ -66,10 +73,24 @@ struct StatsView: View {
 				}
 				.onAppear(perform: {
 					Task {
-						delta = calculateAverageInterval(nuts: nuts)
-						nutsInYear = calculateNutsInYear(nuts: nuts)
+						if (nuts.count > 1) {
+							delta = calculateAverageInterval(nuts: nuts)
+							nutsInYear = calculateNutsInYear(nuts: nuts)
+							timesPerMonthData = calculateNutsPerMonth(nuts: nuts)
+						}
+						
+						print(timesPerMonthData)
 					}
 				})
+				
+				if (nuts.count > 0) {
+					Chart(timesPerMonthData, id: \.timeDate) { item in
+						LineMark (
+							x: .value("Month", item.timeDate),
+							y: .value("Count", item.count)
+						)
+					}
+				}
 				
 				Spacer()
 			}
@@ -101,7 +122,7 @@ struct StatsView: View {
 	func calculateAverageInterval(nuts: [Nut]) -> TimeInterval {
 		
 		let delta: TimeInterval = {
-			if (nuts.count > 0)
+			if (nuts.count > 1)
 			{
 				var deltaTime: TimeInterval = TimeInterval()
 				for i in 1..<nuts.count-1 {
@@ -118,6 +139,41 @@ struct StatsView: View {
 	
 	func calculateNutsInYear(nuts: [Nut]) -> Int {
 		return nuts.filter { dateFormatter.string(from: $0.time).contains(yearFormatter.string(from: nuts[nuts.count-1].time)) }.count
+	}
+	
+	func calculateNutsPerMonth(nuts: [Nut]) -> [ChartData]
+	{
+		let months: [String] = [
+								"January",
+								"February",
+								"March",
+								"April",
+								"May",
+								"June",
+								"July",
+								"August",
+								"September",
+								"October",
+								"November",
+								"December",
+								""]
+		
+		var returnedNutsData: [ChartData] = []
+		
+		
+		for i in 0..<12 {
+			var nutCount: Int = 0
+				
+			for j in 0..<nuts.count {
+				if dateFormatter.string(from: nuts[j].time).contains(months[i]) {
+					nutCount += 1
+				}
+			}
+			
+			returnedNutsData.append(ChartData.init(timeDate: months[i], count: nutCount))
+		}
+		
+		return returnedNutsData
 	}
 }
 

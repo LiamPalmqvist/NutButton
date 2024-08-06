@@ -89,23 +89,26 @@ struct HistoryView: View {
 							.foregroundColor(Color("TextColor"))
 					}
 					
-					if (appSettings.historyRowLimit != "All" && nuts.count > 0) {
-						ForEach((0..<(Int(appSettings.historyRowLimit) ?? 500)-1), id: \.self) {index in
-							if (index > 0 && index < nuts.count-1) {
-								if (calculateMonth(date: nuts[nuts.count-index].time) != calculateMonth(date: nuts[nuts.count-index-1].time))
+					if (appSettings.historyRowLimit != "All" && nuts.count > 0 && nuts.count > Int(appSettings.historyRowLimit)!) {
+						
+						ListItem(parsedDate: .constant(nuts.last!.time), assocNut: .constant(nuts.count-1), nuts: $nuts, appSettings: .constant(appSettings))
+						
+						ForEach((0..<Int(appSettings.historyRowLimit)!), id: \.self) {index in
+							
+							// calculate the month
+							if (index > 1) {
+								if (calculateMonth(date: nuts[nuts.count-index].time) != calculateMonth(date: nuts[nuts.count-(index-1)].time))
 								{
-									Text(calculateMonth(date: nuts[nuts.count-index-1].time) + " " + dateFormatter.string(from: nuts[nuts.count-index-1].time).components(separatedBy: " ")[2])
+									Text(calculateMonth(date: nuts[nuts.count-index].time) + " " + dateFormatter.string(from: nuts[nuts.count-index].time).components(separatedBy: " ")[2])
 										.font(Font.custom("LEMONMILK-Regular", size: 35))
 										.frame(width: 350, alignment: .leading)
 										.padding(.bottom, -10)
 										.foregroundColor(Color("TextColor"))
 								}
-								ListItem(parsedDate: .constant(nuts[nuts.count-(index+1)].time), assocNut: .constant(nuts.count-(index+1)), nuts: $nuts, appSettings: .constant(appSettings))
+								
+								ListItem(parsedDate: .constant(nuts[nuts.count-index].time), assocNut: .constant(nuts.count-index), nuts: $nuts, appSettings: .constant(appSettings))
 							}
-							if (index == 0) {
-								ListItem(parsedDate: .constant(nuts[nuts.count-1].time), assocNut: .constant(nuts.count-1), nuts: $nuts, appSettings: .constant(appSettings))
-							}
-							
+								
 						}
 					} else {
 						ForEach((0..<nuts.count).reversed(), id: \.self) {index in
