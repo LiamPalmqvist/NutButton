@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatsButton: View {
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
 	@State var isPresentingStats = false
 	@State var iconColor: Color
 	
@@ -30,7 +31,7 @@ struct StatsButton: View {
 			}
 		}
 		.sheet(isPresented: $isPresentingStats) {
-			StatsView(nuts: $nuts)
+			StatsView(nuts: $nuts, appSettings: $appSettings)
 		}
 	}
 	
@@ -38,6 +39,6 @@ struct StatsButton: View {
 
 struct StatsButton_Previews: PreviewProvider {
 	static var previews: some View {
-		StatsButton(nuts: .constant(Nut.sampleData), iconColor: Color("TextColor"))
+		StatsButton(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData), iconColor: Color("TextColor"))
 	}
 }

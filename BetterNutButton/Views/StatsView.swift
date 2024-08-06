@@ -15,6 +15,7 @@ struct ChartData {
 
 struct StatsView: View {
 	@Binding var nuts: [Nut]
+	@Binding var appSettings: AppSettings
 	
 	@State var delta: TimeInterval = TimeInterval()
 	@State var nutsInYear: Int = 0
@@ -89,6 +90,9 @@ struct StatsView: View {
 							x: .value("Month", item.timeDate),
 							y: .value("Count", item.count)
 						)
+						.foregroundStyle(Color(hex: appSettings.accent)!)
+						.lineStyle(.init(lineWidth: 5))
+						
 					}
 				}
 				
@@ -143,23 +147,9 @@ struct StatsView: View {
 	
 	func calculateNutsPerMonth(nuts: [Nut]) -> [ChartData]
 	{
-		let months: [String] = [
-								"January",
-								"February",
-								"March",
-								"April",
-								"May",
-								"June",
-								"July",
-								"August",
-								"September",
-								"October",
-								"November",
-								"December",
-								""]
+		let months: [String] = ["Jan", "Feb", "Mar", "Apr",	"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ""]
 		
 		var returnedNutsData: [ChartData] = []
-		
 		
 		for i in 0..<12 {
 			var nutCount: Int = 0
@@ -179,6 +169,6 @@ struct StatsView: View {
 
 struct StatsView_Previews: PreviewProvider {
 	static var previews: some View {
-		StatsView(nuts: .constant(Nut.sampleData))
+		StatsView(nuts: .constant(Nut.sampleData), appSettings: .constant(AppSettings.sampleData)).preferredColorScheme(/*@START_MENU_TOKEN@*/.dark/*@END_MENU_TOKEN@*/)
 	}
 }

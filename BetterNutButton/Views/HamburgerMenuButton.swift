@@ -47,15 +47,18 @@ struct HamburgerMenuButton: View {
 			
 			if (isOpen) {
 				
-				StatsButton(nuts: $nuts, iconColor: Color("TextColor"))
+				StatsButton(nuts: $nuts, appSettings: $appSettings, iconColor: Color("TextColor"))
 				HistoryButton(nuts: $nuts, appSettings: $appSettings, iconColor: Color("TextColor"))
 				SettingsButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager, iconColor: Color("TextColor"))
 				
 			} else {
 				
-				StatsButton(nuts: $nuts, iconColor: Color.clear)
+				StatsButton(nuts: $nuts, appSettings: $appSettings, iconColor: Color.clear)
+					.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
 				HistoryButton(nuts: $nuts, appSettings: $appSettings, iconColor: Color.clear)
+					.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
 				SettingsButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager, iconColor: Color.clear)
+					.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
 			}
 			
 		}
