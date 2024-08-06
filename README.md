@@ -22,6 +22,7 @@ Download the latest IPA in the Releases section under "latest.ipa"!
 - [x] UNDO button has been moved to history page
 - [x] Ability to add NUTs manually
 - [x] Ability to change app tint
+- [x] Stats
 
 ## Features left to be added:
 - [ ] Ability to change App Icon
