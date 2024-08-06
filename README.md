@@ -24,6 +24,8 @@ Download the latest IPA in the Releases section under "latest.ipa"!
 - [x] Ability to change app tint
 - [x] Stats
 
+## Known bugs
+- [ ] Importing on actual devices does not work properly
+
 ## Features left to be added:
 - [ ] Ability to change App Icon
-- [ ] More stats in the statistics page
