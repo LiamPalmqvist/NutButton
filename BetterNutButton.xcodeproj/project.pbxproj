@@ -25,6 +25,9 @@
 		F491E1D12C614DA900BDE780 /* HamburgerMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1D02C614DA900BDE780 /* HamburgerMenuButton.swift */; };
 		F491E1D32C61560100BDE780 /* HistoryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1D22C61560100BDE780 /* HistoryButton.swift */; };
 		F491E1D52C61681E00BDE780 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F491E1D42C61681E00BDE780 /* CalendarView.swift */; };
+		F49F1AD82C62D8C00092A901 /* StatsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1AD72C62D8C00092A901 /* StatsChart.swift */; };
+		F49F1ADA2C62E4BB0092A901 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1AD92C62E4BB0092A901 /* Structs.swift */; };
+		F49F1ADC2C62E5180092A901 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1ADB2C62E5180092A901 /* Extensions.swift */; };
 		F4E5F3F82C5EC51200EB5976 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3F72C5EC51200EB5976 /* UIButton.swift */; };
 		F4E5F3FA2C60374200EB5976 /* StatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3F92C60374200EB5976 /* StatsButton.swift */; };
 		F4E5F3FC2C6038AA00EB5976 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3FB2C6038AA00EB5976 /* StatsView.swift */; };
@@ -73,6 +76,9 @@
 		F491E1D02C614DA900BDE780 /* HamburgerMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerMenuButton.swift; sourceTree = "<group>"; };
 		F491E1D22C61560100BDE780 /* HistoryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryButton.swift; sourceTree = "<group>"; };
 		F491E1D42C61681E00BDE780 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		F49F1AD72C62D8C00092A901 /* StatsChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsChart.swift; sourceTree = "<group>"; };
+		F49F1AD92C62E4BB0092A901 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		F49F1ADB2C62E5180092A901 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F4E5F3F72C5EC51200EB5976 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		F4E5F3F92C60374200EB5976 /* StatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsButton.swift; sourceTree = "<group>"; };
 		F4E5F3FB2C6038AA00EB5976 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -168,10 +174,12 @@
 		F444E1532C5A846A009C5E1B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F49F1AD92C62E4BB0092A901 /* Structs.swift */,
 				F444E1542C5A847C009C5E1B /* Nut.swift */,
 				F444E1562C5A8823009C5E1B /* NutManager.swift */,
 				F4E5F3FF2C60F14100EB5976 /* AppSettings.swift */,
 				F4E5F4012C60F14900EB5976 /* SettingsManager.swift */,
+				F49F1ADB2C62E5180092A901 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 				F491E1D02C614DA900BDE780 /* HamburgerMenuButton.swift */,
 				F491E1D22C61560100BDE780 /* HistoryButton.swift */,
 				F491E1D42C61681E00BDE780 /* CalendarView.swift */,
+				F49F1AD72C62D8C00092A901 /* StatsChart.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -336,6 +345,7 @@
 			files = (
 				F444E15F2C5AB2EA009C5E1B /* HistoryView.swift in Sources */,
 				F454473C2C5E4DEE001CBDE6 /* SettingsButton.swift in Sources */,
+				F49F1AD82C62D8C00092A901 /* StatsChart.swift in Sources */,
 				F444E12C2C5A844E009C5E1B /* ContentView.swift in Sources */,
 				F491E1D52C61681E00BDE780 /* CalendarView.swift in Sources */,
 				F491E1D12C614DA900BDE780 /* HamburgerMenuButton.swift in Sources */,
@@ -344,9 +354,11 @@
 				F454473E2C5E509B001CBDE6 /* SettingsView.swift in Sources */,
 				F484A9A42C5C35A6003C2370 /* ListItem.swift in Sources */,
 				F444E15A2C5A92EC009C5E1B /* MainButtonView.swift in Sources */,
+				F49F1ADA2C62E4BB0092A901 /* Structs.swift in Sources */,
 				F4E5F3FA2C60374200EB5976 /* StatsButton.swift in Sources */,
 				F4E5F3FC2C6038AA00EB5976 /* StatsView.swift in Sources */,
 				F4E5F4022C60F14900EB5976 /* SettingsManager.swift in Sources */,
+				F49F1ADC2C62E5180092A901 /* Extensions.swift in Sources */,
 				F4E5F3F82C5EC51200EB5976 /* UIButton.swift in Sources */,
 				F491E1D32C61560100BDE780 /* HistoryButton.swift in Sources */,
 				F444E12A2C5A844E009C5E1B /* BetterNutButtonApp.swift in Sources */,

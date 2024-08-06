@@ -13,6 +13,16 @@ struct BetterNutButtonApp: App {
 	@StateObject private var nutStore = NutManager()
 	@StateObject private var settingsStore = SettingsManager()
     
+	let center = UNUserNotificationCenter.current()
+	
+	init() {
+		center.requestAuthorization(options: [.badge, .alert, .sound], completionHandler: { ( granted, error ) in
+			if let error = error {
+				print(error)
+			}
+		})
+	}
+	
 	var body: some Scene {
         WindowGroup {
 			ContentView(nuts: $nutStore.nuts, appSettings: $settingsStore.settings, settingsManager: .constant(settingsStore)) {

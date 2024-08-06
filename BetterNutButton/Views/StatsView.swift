@@ -20,83 +20,81 @@ struct StatsView: View {
 	@State var delta: TimeInterval = TimeInterval()
 	@State var nutsInYear: Int = 0
 	@State var timesPerMonthData: [ChartData] = []
+	@State var timesPerHourData: [ChartData] = []
 	
 	var body: some View {
 		ZStack {
 			Color("BackgroundColor")
 				.ignoresSafeArea()
 			
-			VStack {
-				Text("Insights")
-					.font(Font.custom("LEMONMILK-Regular", size: 45))
-					.padding(.bottom, 10)
-					.padding(.top, 30)
-					.foregroundColor(Color("TextColor"))
-				
-				Text("Average nut interval")
-					.font(Font.custom("LEMONMILK-Regular", size: 30))
-					.padding(.bottom, -25.0)
-					.foregroundColor(Color("TextColor"))
-				ZStack {
-					RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-						.foregroundColor(Color("ContainerColor"))
-						.frame(width: 375, height: 50)
-						.clipShape(.buttonBorder)
-						.padding(.vertical)
-					VStack {
-						Text(intervalFormatter.string(from: delta) ?? "0")
-							.font(Font.custom("LEMONMILK-Regular", size: 22))
-							.foregroundColor(Color("TextColor"))
+			ScrollView {
+				VStack {
+					Text("Insights")
+						.font(Font.custom("LEMONMILK-Regular", size: 45))
+						.padding(.bottom, 10)
+						.padding(.top, 30)
+						.foregroundColor(Color("TextColor"))
+					
+					Text("Average nut interval")
+						.font(Font.custom("LEMONMILK-Regular", size: 30))
+						.padding(.bottom, -25.0)
+						.foregroundColor(Color("TextColor"))
+					ZStack {
+						RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+							.foregroundColor(Color("ContainerColor"))
+							.frame(width: 375, height: 50)
+							.clipShape(.buttonBorder)
+							.padding(.vertical)
+						VStack {
+							Text(intervalFormatter.string(from: delta) ?? "0")
+								.font(Font.custom("LEMONMILK-Regular", size: 22))
+								.foregroundColor(Color("TextColor"))
+						}
 					}
-				}
-				.onAppear(perform: {
-					Task {
-						delta = calculateAverageInterval(nuts: nuts)
-						nutsInYear = calculateNutsInYear(nuts: nuts)
-					}
-				})
-				
-				Text("Total nuts in year")
-					.font(Font.custom("LEMONMILK-Regular", size: 30))
-					.padding(.bottom, -25.0)
-					.foregroundColor(Color("TextColor"))
-				ZStack {
-					RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-						.foregroundColor(Color("ContainerColor"))
-						.frame(width: 375, height: 50)
-						.clipShape(.buttonBorder)
-						.padding(.vertical)
-					VStack {
-						Text(String(nutsInYear))
-							.font(Font.custom("LEMONMILK-Regular", size: 22))
-							.foregroundColor(Color("TextColor"))
-					}
-				}
-				.onAppear(perform: {
-					Task {
-						if (nuts.count > 1) {
+					.onAppear(perform: {
+						Task {
 							delta = calculateAverageInterval(nuts: nuts)
 							nutsInYear = calculateNutsInYear(nuts: nuts)
-							timesPerMonthData = calculateNutsPerMonth(nuts: nuts)
 						}
-						
-						print(timesPerMonthData)
+					})
+					
+					Text("Total nuts in year")
+						.font(Font.custom("LEMONMILK-Regular", size: 30))
+						.padding(.bottom, -25.0)
+						.foregroundColor(Color("TextColor"))
+					ZStack {
+						RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+							.foregroundColor(Color("ContainerColor"))
+							.frame(width: 375, height: 50)
+							.clipShape(.buttonBorder)
+							.padding(.vertical)
+						VStack {
+							Text(String(nutsInYear))
+								.font(Font.custom("LEMONMILK-Regular", size: 22))
+								.foregroundColor(Color("TextColor"))
+						}
 					}
-				})
-				
-				if (nuts.count > 0) {
-					Chart(timesPerMonthData, id: \.timeDate) { item in
-						LineMark (
-							x: .value("Month", item.timeDate),
-							y: .value("Count", item.count)
-						)
-						.foregroundStyle(Color(hex: appSettings.accent)!)
-						.lineStyle(.init(lineWidth: 5))
-						
+					.onAppear(perform: {
+						Task {
+							if (nuts.count > 1) {
+								delta = calculateAverageInterval(nuts: nuts)
+								nutsInYear = calculateNutsInYear(nuts: nuts)
+								timesPerMonthData = calculateNutsPerMonth(nuts: nuts, calculateMonthsOrHours: true)
+								timesPerHourData = calculateNutsPerMonth(nuts: nuts, calculateMonthsOrHours: false)
+							}
+							
+							print(timesPerMonthData)
+						}
+					})
+					
+					if (nuts.count > 0) {
+						// Average nuts per month
+						StatsChart(appSettings: $appSettings, chartTitle: "Nuts per month", dataToDisplay: timesPerMonthData, barOrLine: true).padding(.bottom, 50)
+						StatsChart(appSettings: $appSettings, chartTitle: "average time", dataToDisplay: timesPerHourData, barOrLine: false)
 					}
+					
+					Spacer()
 				}
-				
-				Spacer()
 			}
 		}
 	}
@@ -145,26 +143,48 @@ struct StatsView: View {
 		return nuts.filter { dateFormatter.string(from: $0.time).contains(yearFormatter.string(from: nuts[nuts.count-1].time)) }.count
 	}
 	
-	func calculateNutsPerMonth(nuts: [Nut]) -> [ChartData]
+	func calculateNutsPerMonth(nuts: [Nut], calculateMonthsOrHours: Bool) -> [ChartData]
 	{
 		let months: [String] = ["Jan", "Feb", "Mar", "Apr",	"May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", ""]
+		let hours: [String] = [" 00:", " 01:", " 02:", " 03:",	" 04:", " 05:", " 06:", " 07:", " 08:", " 09:", " 10:", " 11:", " 12: ", " 13:", " 14:", " 15:", " 16:", " 17:", " 18:", " 19:", " 20:", " 21:", " 22:", " 23:", ""]
 		
 		var returnedNutsData: [ChartData] = []
 		
-		for i in 0..<12 {
-			var nutCount: Int = 0
+		if calculateMonthsOrHours {
+			for i in 0..<12 {
+				var nutCount: Int = 0
+					
+				for j in 0..<nuts.count {
+					if dateFormatter.string(from: nuts[j].time).contains(months[i]) {
+						nutCount += 1
+					}
+				}
 				
-			for j in 0..<nuts.count {
-				if dateFormatter.string(from: nuts[j].time).contains(months[i]) {
-					nutCount += 1
+				returnedNutsData.append(ChartData.init(timeDate: months[i], count: nutCount))
+			}
+		} else {
+			for i in 0..<24 {
+				var nutCount: Int = 0
+					
+				for j in 0..<nuts.count {
+					if dateFormatter.string(from: nuts[j].time).contains(hours[i]) {
+						nutCount += 1
+					}
+				}
+				
+				if (hours[i][1] == "0") {
+					
+					let tempString = hours[i][2]
+					returnedNutsData.append(ChartData.init(timeDate: String(tempString), count: nutCount))
+				} else {
+					returnedNutsData.append(ChartData.init(timeDate: hours[i].replacingOccurrences(of: ":", with: "").replacingOccurrences(of: " ", with: ""), count: nutCount))
 				}
 			}
-			
-			returnedNutsData.append(ChartData.init(timeDate: months[i], count: nutCount))
 		}
 		
 		return returnedNutsData
 	}
+
 }
 
 struct StatsView_Previews: PreviewProvider {
