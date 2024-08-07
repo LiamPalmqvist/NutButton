@@ -75,7 +75,7 @@ extension Color {
 			r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
 			g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
 			b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
-			b = CGFloat(rgb & 0x000000FF) / 255.0
+			a = CGFloat(rgb & 0x000000FF) / 255.0
 		} else {
 			return nil
 		}

@@ -110,9 +110,12 @@ struct SettingsView: View {
 						allowsMultipleSelection: false) { result in
 							do {
 								guard let selectedFile: URL = try result.get().first else { return }
-								guard let input = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
-								
-								nuts = NutManager().importCSVtoNuts(stringCSV: input)
+								if selectedFile.startAccessingSecurityScopedResource() {
+									guard let input = String(data: try Data(contentsOf: selectedFile), encoding: .utf8) else { return }
+											defer { selectedFile.stopAccessingSecurityScopedResource() }
+									nuts = NutManager().importCSVtoNuts(stringCSV: input)
+									selectedFile.stopAccessingSecurityScopedResource()
+								} else { return }
 							} catch {
 								// Handle failure
 								print("Unable to read file contents")
@@ -141,11 +144,13 @@ struct SettingsView: View {
 					}, bodyText: "Reset", backgroundColor: Color(hex: appSettings.accent))
 					
 					Spacer()
-					
+						.padding(.bottom, 200)
+					Text("Version 0.7.2a")
 				}
 				.padding(.top)
 			}
 		}
+		
 	}
 }
 
