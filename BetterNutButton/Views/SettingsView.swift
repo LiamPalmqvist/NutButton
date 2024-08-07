@@ -145,7 +145,7 @@ struct SettingsView: View {
 					
 					Spacer()
 						.padding(.bottom, 200)
-					Text("Version 0.7.2a")
+					Text("Version 0.7.4a")
 				}
 				.padding(.top)
 			}
