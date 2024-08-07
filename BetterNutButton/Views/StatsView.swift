@@ -72,6 +72,7 @@ struct StatsView: View {
 									.replacingOccurrences(of: " hr, ", with: " : ")
 									.replacingOccurrences(of: " mins, ", with: " : ")
 									.replacingOccurrences(of: " min, ", with: " : ")
+									.replacingOccurrences(of: " min., ", with: " : ")
 									.replacingOccurrences(of: "secs", with: "")
 									.replacingOccurrences(of: "sec", with: "") ?? "0")
 								.font(Font.custom("LEMONMILK-Regular", size: 30))

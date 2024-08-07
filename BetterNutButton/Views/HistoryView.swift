@@ -65,6 +65,7 @@ struct HistoryView: View {
 										.replacingOccurrences(of: " hrs, ", with: " : ")
 										.replacingOccurrences(of: " hr, ", with: " : ")
 										.replacingOccurrences(of: " mins, ", with: " : ")
+										.replacingOccurrences(of: " min., ", with: " : ")
 										.replacingOccurrences(of: " min, ", with: " : ")
 										.replacingOccurrences(of: "secs", with: "")
 										.replacingOccurrences(of: "sec", with: "") ?? "0")
