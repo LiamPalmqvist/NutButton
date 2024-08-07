@@ -8,9 +8,7 @@
 			<key>LSHandlerRank</key>
 			<string>Default</string>
 			<key>LSItemContentTypes</key>
-			<array>
-				<string>I</string>
-			</array>
+			<array/>
 		</dict>
 		<dict/>
 	</array>
@@ -28,5 +26,9 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict/>
+	</array>
 </dict>
 </plist>

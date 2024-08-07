@@ -128,6 +128,8 @@ class NutManager: ObservableObject {
 		init(configuration: ReadConfiguration) throws {
 			if let data = configuration.file.regularFileContents {
 				csvRows = String(decoding: data, as: UTF8.self)
+			} else {
+				print("Not happening")
 			}
 		}
 		
