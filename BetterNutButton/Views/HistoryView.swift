@@ -59,9 +59,17 @@ struct HistoryView: View {
 							.clipShape(.buttonBorder)
 							.padding(.vertical)
 							VStack {
-							Text(intervalFormatter.string(from: delta) ?? "0")
-								.font(Font.custom("LEMONMILK-Regular", size: 22))
-								.foregroundColor(Color("TextColor"))
+								Text(intervalFormatter.string(from: delta)?
+										.replacingOccurrences(of: " days, ", with: " : ")
+										.replacingOccurrences(of: " day, ", with: " : ")
+										.replacingOccurrences(of: " hrs, ", with: " : ")
+										.replacingOccurrences(of: " hr, ", with: " : ")
+										.replacingOccurrences(of: " mins, ", with: " : ")
+										.replacingOccurrences(of: " min, ", with: " : ")
+										.replacingOccurrences(of: "secs", with: "")
+										.replacingOccurrences(of: "sec", with: "") ?? "0")
+									.font(Font.custom("LEMONMILK-Regular", size: 30))
+									.foregroundColor(Color("TextColor"))
 						}
 					}
 					

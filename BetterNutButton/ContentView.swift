@@ -29,23 +29,31 @@ struct ContentView: View {
 						HamburgerMenuButton(nuts: $nuts, appSettings: $appSettings, settingsManager: $settingsManager)
 							.padding(.trailing, 30)
 					}
-					MainButtonView(action: {nuts.append(Nut(time:Date.now))})
+					
+					MainButtonView(action: {nuts.append(Nut(time:Date.now))}, width: 0.9)
 						.padding(.top, -50)
-					Text("NUTS")
-						.font(Font
-							.custom("LEMONMILK-Regular", size: 56))
-						.foregroundColor(Color("TextColor"))
-						
-					Text(String(nuts.count))
-						.fontWeight(.bold)
-						.font(.system(size: 40))
-						.padding(.all)
-						.padding(.horizontal)
-						.background(Color("ContainerColor"))
-						.foregroundColor(Color("TextColor"))
-						.cornerRadius(45)
+						.fixedSize()
+					Spacer()
+					VStack {
+						Text("NUTS")
+							.font(
+								.custom("LEMONMILK-Regular", size: 70))
+							.foregroundColor(Color("TextColor"))
+							.padding(.bottom, -10)
+							
+						Text(String(nuts.count))
+							.font(.custom("LEMONMILK-regular", size: 70))
+							.fontWeight(.bold)
+							.padding(.vertical, 5)
+							.padding(.horizontal)
+							.padding(.horizontal)
+							.background(Color("ContainerColor"))
+							.foregroundColor(Color("TextColor"))
+							.cornerRadius(90)
+					}
 					
 					Spacer()
+
 				}
 				.onChange(of: scenePhase) {
 					if (scenePhase == .inactive) { saveAction() }

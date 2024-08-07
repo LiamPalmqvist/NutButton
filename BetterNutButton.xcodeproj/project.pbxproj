@@ -28,6 +28,7 @@
 		F49F1AD82C62D8C00092A901 /* StatsChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1AD72C62D8C00092A901 /* StatsChart.swift */; };
 		F49F1ADA2C62E4BB0092A901 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1AD92C62E4BB0092A901 /* Structs.swift */; };
 		F49F1ADC2C62E5180092A901 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F1ADB2C62E5180092A901 /* Extensions.swift */; };
+		F49F1ADD2C63B7C10092A901 /* LEMONMILK-Medium-copy.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F484A9C52C5C3E07003C2370 /* LEMONMILK-Medium-copy.ttf */; };
 		F4E5F3F82C5EC51200EB5976 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3F72C5EC51200EB5976 /* UIButton.swift */; };
 		F4E5F3FA2C60374200EB5976 /* StatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3F92C60374200EB5976 /* StatsButton.swift */; };
 		F4E5F3FC2C6038AA00EB5976 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E5F3FB2C6038AA00EB5976 /* StatsView.swift */; };
@@ -322,6 +323,7 @@
 				F444E1312C5A844F009C5E1B /* Preview Assets.xcassets in Resources */,
 				F484A9C42C5C3CDA003C2370 /* LEMONMILK-Regular-copy.ttf in Resources */,
 				F444E12E2C5A844F009C5E1B /* Assets.xcassets in Resources */,
+				F49F1ADD2C63B7C10092A901 /* LEMONMILK-Medium-copy.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

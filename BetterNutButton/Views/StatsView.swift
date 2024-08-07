@@ -13,6 +13,25 @@ struct ChartData {
 	var count: Int
 }
 
+extension ChartData {
+	static let SampleData: [ChartData] =
+		[
+		 ChartData.init(timeDate: "Jan", count: 22),
+		 ChartData.init(timeDate: "Feb", count: 14),
+		 ChartData.init(timeDate: "Mar", count: 22),
+		 ChartData.init(timeDate: "Apr", count: 32),
+		 ChartData.init(timeDate: "May", count: 13),
+		 ChartData.init(timeDate: "Jun", count: 27),
+		 ChartData.init(timeDate: "Jul", count: 22),
+		 ChartData.init(timeDate: "Aug", count: 22),
+		 ChartData.init(timeDate: "Sep", count: 14),
+		 ChartData.init(timeDate: "Oct", count: 17),
+		 ChartData.init(timeDate: "Nov", count: 34),
+		 ChartData.init(timeDate: "Dec", count: 22),
+		]
+	
+}
+
 struct StatsView: View {
 	@Binding var nuts: [Nut]
 	@Binding var appSettings: AppSettings
@@ -46,8 +65,16 @@ struct StatsView: View {
 							.clipShape(.buttonBorder)
 							.padding(.vertical)
 						VStack {
-							Text(intervalFormatter.string(from: delta) ?? "0")
-								.font(Font.custom("LEMONMILK-Regular", size: 22))
+							Text(intervalFormatter.string(from: delta)?
+									.replacingOccurrences(of: " days, ", with: " : ")
+									.replacingOccurrences(of: " day, ", with: " : ")
+									.replacingOccurrences(of: " hrs, ", with: " : ")
+									.replacingOccurrences(of: " hr, ", with: " : ")
+									.replacingOccurrences(of: " mins, ", with: " : ")
+									.replacingOccurrences(of: " min, ", with: " : ")
+									.replacingOccurrences(of: "secs", with: "")
+									.replacingOccurrences(of: "sec", with: "") ?? "0")
+								.font(Font.custom("LEMONMILK-Regular", size: 30))
 								.foregroundColor(Color("TextColor"))
 						}
 					}
@@ -58,7 +85,7 @@ struct StatsView: View {
 						}
 					})
 					
-					Text("Total nuts in year")
+					Text("nuts in \(yearFormatter.string(from: nuts.last!.time))")
 						.font(Font.custom("LEMONMILK-Regular", size: 30))
 						.padding(.bottom, -25.0)
 						.foregroundColor(Color("TextColor"))
@@ -70,7 +97,7 @@ struct StatsView: View {
 							.padding(.vertical)
 						VStack {
 							Text(String(nutsInYear))
-								.font(Font.custom("LEMONMILK-Regular", size: 22))
+								.font(Font.custom("LEMONMILK-Regular", size: 30))
 								.foregroundColor(Color("TextColor"))
 						}
 					}
@@ -89,8 +116,8 @@ struct StatsView: View {
 					
 					if (nuts.count > 0) {
 						// Average nuts per month
-						StatsChart(appSettings: $appSettings, chartTitle: "Nuts per month", dataToDisplay: timesPerMonthData, barOrLine: true).padding(.bottom, 50)
-						StatsChart(appSettings: $appSettings, chartTitle: "average time", dataToDisplay: timesPerHourData, barOrLine: false)
+						StatsChart(appSettings: $appSettings, chartTitle: "Nuts per month", data: timesPerMonthData, barOrLine: true).padding(.bottom, 50)
+						StatsChart(appSettings: $appSettings, chartTitle: "average time", data: timesPerHourData, barOrLine: false)
 					}
 					
 					Spacer()
@@ -155,7 +182,7 @@ struct StatsView: View {
 				var nutCount: Int = 0
 					
 				for j in 0..<nuts.count {
-					if dateFormatter.string(from: nuts[j].time).contains(months[i]) {
+					if dateFormatter.string(from: nuts[j].time).contains(months[i]) && dateFormatter.string(from:nuts[j].time).contains(yearFormatter.string(from: nuts.last!.time)) {
 						nutCount += 1
 					}
 				}

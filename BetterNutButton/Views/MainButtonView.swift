@@ -10,16 +10,22 @@ import SwiftUI
 
 struct MainButtonView: View {
 	@State private var scale = 290.0
-	@State private var isAnimating = false;
+	@State private var isAnimating = false
 	
+	private var _width: Float
 	private var _action: () -> Void
 	
 	var action: () -> Void {
 		return _action
 	}
 	
-	init(action: @escaping () -> Void) {
+	var width: Float {
+		return _width
+	}
+	
+	init(action: @escaping () -> Void, width: Float) {
 		self._action = action
+		self._width = width
 	}
 	
 	var body: some View {
@@ -28,10 +34,11 @@ struct MainButtonView: View {
 			Circle()
 				.fill(Color("BigButtonColor"))
 				.padding(.all)
+				.frame(width: CGFloat(width)*400)
 			Image("chestnut")
 				.resizable()
 				.aspectRatio(contentMode: .fit)
-				.frame(width: scale, height: scale)
+				.frame(width: Double(width)*scale, height: Double(width)*scale)
 		}
 		.onTapGesture {
 			action()
@@ -62,7 +69,7 @@ struct MainButtonView: View {
 
 struct MainButtonView_Previews: PreviewProvider {
 	static var previews: some View {
-		MainButtonView(action: {}).preferredColorScheme(.dark)
-		MainButtonView(action: {}).preferredColorScheme(.light)
+		MainButtonView(action: {}, width: 1).preferredColorScheme(.dark)
+		MainButtonView(action: {}, width: 1).preferredColorScheme(.light)
 	}
 }
