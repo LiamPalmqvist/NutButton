@@ -18,16 +18,11 @@ struct HistoryButton: View {
 		{
 			isPresentingHistory = true
 		} label: {
-			ZStack {
-				/*Circle()
-					.frame(width: 55)
-					.foregroundColor(Color("ContainerColor"))
-				*/
-				 Image(systemName: "book.fill")
-					.font(.title)
-					.frame(width: 40, height: 40)
-					.foregroundColor(iconColor)
-			}
+			 Image(systemName: "book.fill")
+				.font(.title)
+				.frame(width: 40, height: 40)
+				.foregroundColor(iconColor)
+			
 		}
 		.sheet(isPresented: $isPresentingHistory) {
 			HistoryView(nuts: $nuts, appSettings: $appSettings)

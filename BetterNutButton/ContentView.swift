@@ -35,16 +35,16 @@ struct ContentView: View {
 						.padding(.top, -50)
 						.fixedSize()
 					Spacer()
-					VStack {
-						Text("NUTS")
-							.font(
-								.custom("LEMONMILK-Regular", size: 70))
-							.foregroundColor(Color("TextColor"))
-							.padding(.bottom, -10)
-						
-						Button(action: {
-							isPresentingHistory = true
-						}, label: {
+					Button(action: {
+						isPresentingHistory = true
+					}, label: {
+						VStack {
+							Text("NUTS")
+								.font(
+									.custom("LEMONMILK-Regular", size: 70))
+								.foregroundColor(Color("TextColor"))
+								.padding(.bottom, -10)
+								
 							Text(String(nuts.count))
 								.font(.custom("LEMONMILK-regular", size: 70))
 								.fontWeight(.bold)
@@ -54,12 +54,12 @@ struct ContentView: View {
 								.background(Color("ContainerColor"))
 								.foregroundColor(Color("TextColor"))
 								.cornerRadius(90)
-						})
-						.sheet(isPresented: $isPresentingHistory) {
-							HistoryView(nuts: $nuts, appSettings: $appSettings)
 						}
-						
+					})
+					.sheet(isPresented: $isPresentingHistory) {
+						HistoryView(nuts: $nuts, appSettings: $appSettings)
 					}
+					
 					
 					Spacer()
 

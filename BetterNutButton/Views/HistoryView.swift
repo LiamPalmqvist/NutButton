@@ -67,10 +67,9 @@ struct HistoryView: View {
 										.replacingOccurrences(of: " mins, ", with: " : ")
 										.replacingOccurrences(of: " min., ", with: " : ")
 										.replacingOccurrences(of: " min, ", with: " : ")
-										.replacingOccurrences(of: "secs.", with: "")
+										.replacingOccurrences(of: "secs", with: "")
 										.replacingOccurrences(of: "sec", with: "")
-										.replacingOccurrences(of: ".", with: "")
-										.replacingOccurrences(of: "S", with: "") ?? "0")
+										.replacingOccurrences(of: ".", with: "") ?? "0")
 									.font(Font.custom("LEMONMILK-Regular", size: 30))
 									.foregroundColor(Color("TextColor"))
 						}
