@@ -12,6 +12,7 @@ struct ContentView: View {
 	@Binding var nuts: [Nut]
 	@Binding var appSettings: AppSettings
 	@Binding var settingsManager: SettingsManager
+	@State var isPresentingHistory: Bool = false
 	@Environment(\.scenePhase) private var scenePhase
 	let saveAction: ()-> Void
 	
@@ -40,16 +41,24 @@ struct ContentView: View {
 								.custom("LEMONMILK-Regular", size: 70))
 							.foregroundColor(Color("TextColor"))
 							.padding(.bottom, -10)
-							
-						Text(String(nuts.count))
-							.font(.custom("LEMONMILK-regular", size: 70))
-							.fontWeight(.bold)
-							.padding(.vertical, 5)
-							.padding(.horizontal)
-							.padding(.horizontal)
-							.background(Color("ContainerColor"))
-							.foregroundColor(Color("TextColor"))
-							.cornerRadius(90)
+						
+						Button(action: {
+							isPresentingHistory = true
+						}, label: {
+							Text(String(nuts.count))
+								.font(.custom("LEMONMILK-regular", size: 70))
+								.fontWeight(.bold)
+								.padding(.vertical, 5)
+								.padding(.horizontal)
+								.padding(.horizontal)
+								.background(Color("ContainerColor"))
+								.foregroundColor(Color("TextColor"))
+								.cornerRadius(90)
+						})
+						.sheet(isPresented: $isPresentingHistory) {
+							HistoryView(nuts: $nuts, appSettings: $appSettings)
+						}
+						
 					}
 					
 					Spacer()
