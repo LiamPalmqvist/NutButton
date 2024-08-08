@@ -66,15 +66,17 @@ struct StatsView: View {
 							.padding(.vertical)
 						VStack {
 							Text(intervalFormatter.string(from: delta)?
-									.replacingOccurrences(of: " days, ", with: " : ")
-									.replacingOccurrences(of: " day, ", with: " : ")
-									.replacingOccurrences(of: " hrs, ", with: " : ")
-									.replacingOccurrences(of: " hr, ", with: " : ")
-									.replacingOccurrences(of: " mins, ", with: " : ")
-									.replacingOccurrences(of: " min, ", with: " : ")
-									.replacingOccurrences(of: " min., ", with: " : ")
-									.replacingOccurrences(of: "secs", with: "")
-									.replacingOccurrences(of: "sec", with: "") ?? "0")
+								.replacingOccurrences(of: " days, ", with: " : ")
+								.replacingOccurrences(of: " day, ", with: " : ")
+								.replacingOccurrences(of: " hrs, ", with: " : ")
+								.replacingOccurrences(of: " hr, ", with: " : ")
+								.replacingOccurrences(of: " mins, ", with: " : ")
+								.replacingOccurrences(of: " min., ", with: " : ")
+								.replacingOccurrences(of: " min, ", with: " : ")
+								.replacingOccurrences(of: "secs.", with: "")
+								.replacingOccurrences(of: "sec", with: "")
+								.replacingOccurrences(of: ".", with: "")
+								.replacingOccurrences(of: "S", with: "") ?? "0")
 								.font(Font.custom("LEMONMILK-Regular", size: 30))
 								.foregroundColor(Color("TextColor"))
 						}
@@ -86,7 +88,7 @@ struct StatsView: View {
 						}
 					})
 					
-					Text("nuts in \(yearFormatter.string(from: nuts.last!.time))")
+					Text("nuts in \(yearFormatter.string(from: Date.now))")
 						.font(Font.custom("LEMONMILK-Regular", size: 30))
 						.padding(.bottom, -25.0)
 						.foregroundColor(Color("TextColor"))
@@ -168,7 +170,7 @@ struct StatsView: View {
 	}
 	
 	func calculateNutsInYear(nuts: [Nut]) -> Int {
-		return nuts.filter { dateFormatter.string(from: $0.time).contains(yearFormatter.string(from: nuts[nuts.count-1].time)) }.count
+		return nuts.filter { dateFormatter.string(from: $0.time).contains(yearFormatter.string(from: Date.now)) }.count
 	}
 	
 	func calculateNutsPerMonth(nuts: [Nut], calculateMonthsOrHours: Bool) -> [ChartData]

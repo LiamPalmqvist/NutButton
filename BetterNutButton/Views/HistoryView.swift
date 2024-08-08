@@ -67,8 +67,10 @@ struct HistoryView: View {
 										.replacingOccurrences(of: " mins, ", with: " : ")
 										.replacingOccurrences(of: " min., ", with: " : ")
 										.replacingOccurrences(of: " min, ", with: " : ")
-										.replacingOccurrences(of: "secs", with: "")
-										.replacingOccurrences(of: "sec", with: "") ?? "0")
+										.replacingOccurrences(of: "secs.", with: "")
+										.replacingOccurrences(of: "sec", with: "")
+										.replacingOccurrences(of: ".", with: "")
+										.replacingOccurrences(of: "S", with: "") ?? "0")
 									.font(Font.custom("LEMONMILK-Regular", size: 30))
 									.foregroundColor(Color("TextColor"))
 						}
@@ -76,7 +78,7 @@ struct HistoryView: View {
 					
 					UIButton(action: {
 						showingCalendar.toggle()
-						print("Undid")
+						print("Added")
 					}, bodyText: "add nut", backgroundColor: Color(hex: appSettings.accent))
 					.sheet(isPresented: $showingCalendar) {
 						CalendarView(nuts: $nuts, appSettings: $appSettings, showingCalendar: $showingCalendar)

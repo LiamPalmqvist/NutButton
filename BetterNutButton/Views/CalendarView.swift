@@ -24,10 +24,23 @@ struct CalendarView: View {
 					.frame(height: 500)
 					.frame(maxWidth: .infinity)
 				
-				UIButton(action: {nuts.append(Nut(time: selectedDate)); showingCalendar = false}, bodyText: "Add nut", backgroundColor: Color(hex: appSettings.accent))
+				UIButton(action: {nuts.append(Nut(time: selectedDate)); showingCalendar = false; setNuts()}, bodyText: "Add nut", backgroundColor: Color(hex: appSettings.accent))
 			
 				Spacer()
 			}
+		}
+	}
+	
+	func returnNuts(nuts: [Nut]) async throws -> [Nut] {
+		let task = Task {
+			return nuts.sorted { ($0.time as Date) < ($1.time as Date) }
+		}
+		return await task.value
+	}
+	
+	func setNuts() {
+		Task {
+			self.nuts = try await returnNuts(nuts: nuts)
 		}
 	}
 }
